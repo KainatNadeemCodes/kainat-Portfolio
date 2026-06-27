@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, FlaskConical, Microscope, Globe, Heart, Eye, ArrowUpRight, BookOpen } from "lucide-react";
+import { Target, FlaskConical, Microscope, Globe, Heart, Eye, BookOpen } from "lucide-react";
 
 const researchAreas = [
   {
@@ -60,8 +60,9 @@ const FutureDirection = () => {
           <p className="font-mono text-primary text-xs tracking-[0.2em] uppercase mb-3">Direction</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">Research Direction</h2>
           <p className="font-body text-muted-foreground text-sm mt-3 leading-relaxed max-w-lg">
-            Targeting an MSc in Artificial Intelligence — at the intersection of ethical AI,
-            intelligent systems, and technology for social good.
+            Pursuing an MSc in Artificial Intelligence to deepen the work already in motion —
+            at the intersection of ethical AI, intelligent systems, and technology built for
+            the people most systems forget.
           </p>
         </motion.div>
 
@@ -83,18 +84,19 @@ const FutureDirection = () => {
                 Academic Goal
               </p>
               <p className="text-foreground font-medium text-sm leading-relaxed">
-                MSc in Artificial Intelligence — Brunel University London
+                MSc in Artificial Intelligence — UK Research Universities
               </p>
               <p className="text-muted-foreground text-xs mt-1 leading-relaxed font-body">
                 Deepening expertise in machine learning, intelligent systems, fairness-aware models,
-                and responsible AI deployment — to scale the work already started with NextGenShe,
-                Haven, and SheSphere.
+                and responsible AI deployment — to formalise and scale the work already built
+                through NextGenShe, Haven, and SheSphere. The goal is not just to study AI
+                but to contribute research that holds it accountable.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* ── Faculty Alignment Card — Dr Asieh Tabaghdehi ── */}
+        {/* Research Alignment card */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,39 +111,18 @@ const FutureDirection = () => {
               <BookOpen size={15} className="text-violet-400" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-mono text-violet-400 text-[10px] tracking-[0.15em] uppercase mb-1">
-                Faculty Alignment · Brunel Centre for AI: Social and Digital Innovation
-              </p>
-
-              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                <p className="text-foreground font-semibold text-sm">
-                  Dr Asieh Tabaghdehi
-                </p>
-                <a
-                  href="https://www.brunel.ac.uk/research/Projects/Towards-a-responsible-AI-and-inclusive-workforce-in-a-digital-economy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 text-violet-400 text-[10px] font-mono hover:text-violet-300 transition-colors cursor-pointer"
-                >
-                  View Research <ArrowUpRight size={10} />
-                </a>
-              </div>
-
-              <p className="text-muted-foreground text-[10px] font-mono mb-3">
-                Senior Lecturer · Head of AI & Technology Management Research Group ·
-                Lead, Centre for AI: Social and Digital Innovation · Brunel University London
+              <p className="font-mono text-violet-400 text-[10px] tracking-[0.15em] uppercase mb-2">
+                Research Alignment
               </p>
 
               <p className="text-secondary-foreground text-xs leading-relaxed font-body mb-3">
-                Dr Tabaghdehi's research focuses on responsible AI, ethical AI frameworks,
-                fairness in the digital economy, and inclusive workforce development —
-                directly intersecting with my work on NextGenShe, Haven, and the Smart Health
-                Assistant. Her project on responsible AI and inclusive workforce in the digital
-                economy mirrors the exact problems I have been building solutions for since 2024.
+                The research I want to pursue sits at the boundary of responsible AI and real-world
+                impact — how fairness-aware models behave in practice, how intelligent systems can
+                be designed around people rather than just for them, and how explainability shifts
+                from a technical property to a social one. This work started in 2024 with
+                NextGenShe, Haven, and the Smart Health Assistant. The MSc is where it goes deeper.
               </p>
 
-              {/* Alignment tags */}
               <div className="flex flex-wrap gap-1.5">
                 {[
                   'Responsible AI',
