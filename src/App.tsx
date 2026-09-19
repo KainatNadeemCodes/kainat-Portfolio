@@ -9,6 +9,7 @@ import SmartHealthCaseStudy from "./pages/SmartHealthCaseStudy";
 import NextGenSheCaseStudy from "./pages/NextGenSheCaseStudy";
 import HavenCaseStudy from "./pages/HavenCaseStudy";
 import TahqiqAICaseStudy from "@/pages/CaseStudyTahqiqAI";
+import AdditionalCaseStudies from "@/pages/AdditionalCaseStudies";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/case-study/nextgenshe" element={<NextGenSheCaseStudy />} />
           <Route path="/case-study/haven" element={<HavenCaseStudy />} />
           <Route path="/case-study/tahqiq-ai" element={<TahqiqAICaseStudy />} />
+          <Route path="/case-study/:slug" element={<AdditionalCaseStudies />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -33,3 +35,4 @@ const App = () => (
 );
 
 export default App;
+
