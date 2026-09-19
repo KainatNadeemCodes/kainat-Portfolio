@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, Github, Clock, Brain, Shield, Zap, Globe, Eye, GitBranch, BookOpen, Cpu, Users, Play, FileText } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Clock, Brain, Shield, Zap, Globe, Eye, GitBranch, BookOpen, Cpu, Users, Bot, Play, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import projectHealth from "@/assets/project-health.jpg";
 import projectNextGenShe from "@/assets/project-nextgenshe.jpg";
@@ -8,6 +8,12 @@ import projectSheSphere    from "@/assets/project-shesphere.svg";
 import projectFlowMind     from "@/assets/project-flowmind.svg";
 import projectDisasterWatch from "@/assets/project-disaster-watcher.svg";
 import projectTahqiq from "@/assets/project-tahqiq.jpg";
+import projectJuristt from "@/assets/project-juristt.jpg";
+import projectHackerrankSupport from "@/assets/project-hackerrank-support.jpg";
+import projectHackerrankMultimodal from "@/assets/project-hackerrank-multimodal.jpg";
+import projectHackerrankBuyWait from "@/assets/project-hackerrank-buywait.jpg";
+import projectRecruitFlow from "@/assets/project-recruitflow.jpg";
+import projectAgentHR from "@/assets/project-agent-hr.jpg";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Identity tag config
@@ -166,10 +172,59 @@ const TahqiqArchSVG = () => (
   </svg>
 );
 
+const AgentArchSVG = () => (
+  <svg viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <rect x="72" y="8" width="76" height="20" rx="4" fill="rgba(99,102,241,0.18)" stroke="rgba(129,140,248,0.5)" strokeWidth="0.8" />
+    <text x="110" y="21" textAnchor="middle" fill="rgba(199,210,254,0.9)" fontSize="7" fontFamily="monospace">User Input</text>
+    <line x1="110" y1="28" x2="110" y2="40" stroke="rgba(129,140,248,0.4)" strokeWidth="0.8" />
+    <rect x="45" y="40" width="130" height="22" rx="4" fill="rgba(139,92,246,0.15)" stroke="rgba(167,139,250,0.45)" strokeWidth="0.8" />
+    <text x="110" y="54" textAnchor="middle" fill="rgba(221,214,254,0.9)" fontSize="7" fontFamily="monospace">Agent Orchestrator</text>
+    <line x1="110" y1="62" x2="50" y2="76" stroke="rgba(167,139,250,0.35)" strokeWidth="0.8" />
+    <line x1="110" y1="62" x2="110" y2="76" stroke="rgba(167,139,250,0.35)" strokeWidth="0.8" />
+    <line x1="110" y1="62" x2="170" y2="76" stroke="rgba(167,139,250,0.35)" strokeWidth="0.8" />
+    <rect x="10" y="76" width="80" height="20" rx="4" fill="rgba(16,185,129,0.12)" stroke="rgba(52,211,153,0.35)" strokeWidth="0.8" />
+    <text x="50" y="89" textAnchor="middle" fill="rgba(167,243,208,0.85)" fontSize="6.5" fontFamily="monospace">Tools / Retrieval</text>
+    <rect x="70" y="76" width="80" height="20" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(251,191,36,0.35)" strokeWidth="0.8" />
+    <text x="110" y="89" textAnchor="middle" fill="rgba(253,230,138,0.85)" fontSize="6.5" fontFamily="monospace">Policy Layer</text>
+    <rect x="130" y="76" width="80" height="20" rx="4" fill="rgba(59,130,246,0.12)" stroke="rgba(96,165,250,0.35)" strokeWidth="0.8" />
+    <text x="170" y="89" textAnchor="middle" fill="rgba(191,219,254,0.85)" fontSize="6.5" fontFamily="monospace">Human Review</text>
+    <line x1="110" y1="96" x2="110" y2="108" stroke="rgba(129,140,248,0.3)" strokeWidth="0.8" />
+    <rect x="42" y="108" width="136" height="20" rx="4" fill="rgba(99,102,241,0.12)" stroke="rgba(129,140,248,0.3)" strokeWidth="0.8" />
+    <text x="110" y="121" textAnchor="middle" fill="rgba(199,210,254,0.8)" fontSize="6.5" fontFamily="monospace">Structured Output</text>
+  </svg>
+);
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Projects data
 // ─────────────────────────────────────────────────────────────────────────────
 const projects = [
+  {
+    title: "Juristt",
+    category: "Build with Gemini XPRIZE",
+    categoryIcon: Shield,
+    hook: "Legal research in Pakistan is slow, complex, and difficult to access — Juristt turns trusted legal sources into an intelligent, searchable workspace.",
+    summary: "An AI-powered legal intelligence platform focused on Pakistani law. Juristt combines multi-agent routing, Vertex AI RAG retrieval, grounded legal reasoning, citation validation, and a cross-platform Flutter interface to make legal information more accessible.",
+    tags: ["🤖 AI", "🌍 Social Impact", "🧠 UX Case Study"],
+    cta: "View Case Study",
+    ctaSecondary: "Live Platform",
+    tech: ["Flutter", "FastAPI", "Vertex AI RAG", "Gemini 2.5 Flash", "Firebase", "Google Cloud", "Docker"],
+    image: projectJuristt,
+    slug: "/case-study/juristt",
+    liveUrl: "https://juristt.io",
+    repoUrl: null,
+    submissionUrl: "https://devpost.com/software/juristt-lega-ai-assitant",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "indigo",
+    archLabel: "Agentic Legal RAG",
+    ArchDiagram: AgentArchSVG,
+    featured: true,
+    hackathon: true,
+    hackathonName: "Build with Gemini XPRIZE",
+    teamRole: "AI Engineer · RAG Architect · Multi-agent architecture · Deployment",
+    teamSize: "4-member team",
+    keyNumbers: ["10 statutes", "5 agents", "Grounded RAG", "Cloud Run"],
+  },
   {
     title: "Tahqiq AI",
     category: "HEC Gen AI Hackathon 2026",
@@ -180,8 +235,8 @@ const projects = [
     cta: "View Case Study",
     ctaSecondary: "Live App",
     tech: ["FastAPI", "LangChain", "ChromaDB", "Streamlit", "HuggingFace", "Urdish NLP", "XAI", "Multi-agent"],
-    image: projectTahqiq,                          // ← changed from null
-    slug: "/case-study/tahqiq-ai",                 // ← changed from null
+    image: projectTahqiq,
+    slug: "/case-study/tahqiq-ai",
     liveUrl: "https://tahqiq-ai-hec.streamlit.app",
     repoUrl: "https://github.com/KainatNadeemCodes/Tahqiq-AI-HEC-Frontend",
     repoUrlBackend: "https://huggingface.co/spaces/Universex01/Tahqiq-AI-HEC-Backend",
@@ -193,9 +248,166 @@ const projects = [
     ArchDiagram: TahqiqArchSVG,
     featured: true,
     hackathon: true,
+    hackathonName: "HEC Gen AI Hackathon 2026",
     teamRole: "Backend Developer · Multi-agent pipeline · LLM Router · Deployment",
     teamSize: "5-member team",
     keyNumbers: ["253 unis", "5 agents", "<30s", "4+ LLMs"],
+  },
+  {
+    title: "AI-Powered Smart Health Assistant",
+    category: "AI Engineering",
+    categoryIcon: Brain,
+    hook: "In low-resource environments, people make health decisions without guidance — this system changes that, without replacing the doctor.",
+    summary: "AI triage system achieving 84%+ classification accuracy across 5 severity levels — handles real-world Urdu-English inputs, routes to appropriate care, and enforces an ethical constraint layer that prevents diagnosis and mandates human oversight.",
+    tags: ["🤖 AI", "💻 Frontend"],
+    cta: "View Case Study",
+    ctaSecondary: "Read Research Series",
+    tech: ["Python", "FastAPI", "Scikit-Learn", "NLTK", "Decision Logic"],
+    image: projectHealth,
+    slug: "/case-study/smart-health-assistant",
+    liveUrl: null,
+    repoUrl: "https://github.com/KainatNadeemCodes/health-assistant-FYP",
+    repoUrlBackend: null,
+    researchUrl: "https://www.linkedin.com/pulse/im-building-ai-health-assistant-pakistan-because-waiting-nadeem--izerf",
+    accentColor: "blue",
+    archLabel: "Decision Flow",
+    ArchDiagram: HealthArchSVG,
+    featured: false,
+  },
+  {
+    title: "Buy or Wait",
+    category: "HackerRank Orchestrate · September 2026",
+    categoryIcon: Users,
+    hook: "A purchase is not automatically affordable just because a user can technically pay for it.",
+    summary: "An AI-powered financial decision agent designed to evaluate affordability, forecast cash flow, and return a safer, explainable recommendation for a requested expense.",
+    tags: ["🤖 AI", "🌍 Social Impact"],
+    cta: "View Case Study",
+    ctaSecondary: "HackerRank Challenge",
+    tech: ["Agentic AI", "Financial Decisioning", "Deterministic Rules", "AI Judge"],
+    image: projectHackerrankBuyWait,
+    slug: "/case-study/hackerrank-buy-or-wait",
+    liveUrl: null,
+    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-september26/challenges/buy-or-wait",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "emerald",
+    archLabel: "Affordability Flow",
+    ArchDiagram: AgentArchSVG,
+    featured: true,
+    hackathon: true,
+    hackathonName: "HackerRank Orchestrate · September Edition",
+    teamRole: "Solo participant · Designed, built, submitted, and defended the agent independently",
+    teamSize: "Solo build",
+    keyNumbers: ["Rank #397", "Top 13%", "Bronze medal", "24 hours"],
+  },
+  {
+    title: "Multi-Modal Review",
+    category: "HackerRank Orchestrate · June 2026",
+    categoryIcon: Eye,
+    hook: "Reliable review requires more than a single text prompt — evidence can arrive as images, documents, and other modalities.",
+    summary: "A multi-modal evidence review agent designed to inspect varied inputs, reason over the available evidence, and produce structured outputs within a 24-hour agent-building challenge.",
+    tags: ["🤖 AI", "🧠 UX Case Study"],
+    cta: "View Case Study",
+    ctaSecondary: "HackerRank Challenge",
+    tech: ["Agentic AI", "Multi-modal Reasoning", "Structured Outputs", "AI Judge"],
+    image: projectHackerrankMultimodal,
+    slug: "/case-study/hackerrank-multi-modal-review",
+    liveUrl: null,
+    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "violet",
+    archLabel: "Evidence Review Flow",
+    ArchDiagram: AgentArchSVG,
+    featured: false,
+    hackathon: true,
+    hackathonName: "HackerRank Orchestrate · June Edition",
+    teamRole: "Solo participant · Designed, built, submitted, and defended the agent independently",
+    teamSize: "Solo build",
+    keyNumbers: ["Rank #1419", "Top 81%", "24 hours", "AI Judge"],
+  },
+  {
+    title: "Support Agent",
+    category: "HackerRank Orchestrate · May 2026",
+    categoryIcon: Bot,
+    hook: "Support automation needs to answer confidently, cite the right source, and escalate what it cannot safely resolve.",
+    summary: "A terminal-based AI agent that triages support tickets across HackerRank, Claude, and Visa using a provided support corpus, while escalating sensitive or unsupported cases instead of guessing.",
+    tags: ["🤖 AI", "🔒 Safety Tech"],
+    cta: "View Case Study",
+    ctaSecondary: "HackerRank Challenge",
+    tech: ["Python", "RAG", "Classification", "Terminal Agent", "AI Judge"],
+    image: projectHackerrankSupport,
+    slug: "/case-study/hackerrank-support-agent",
+    liveUrl: null,
+    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-may26/challenges/support-agent",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "pink",
+    archLabel: "Support Triage Flow",
+    ArchDiagram: AgentArchSVG,
+    featured: false,
+    hackathon: true,
+    hackathonName: "HackerRank Orchestrate · May Edition",
+    teamRole: "Solo participant · Designed, built, submitted, and defended the agent independently",
+    teamSize: "Solo build",
+    keyNumbers: ["Rank #474", "Top 36%", "24 hours", "3 ecosystems"],
+  },
+  {
+    title: "RecruitFlow AI",
+    category: "All Things Agentic Hackathon",
+    categoryIcon: Globe,
+    hook: "Recruiters should not have to manually move every application from one step to the next.",
+    summary: "An autonomous recruitment workflow that understands applications, applies a human-defined hiring policy, schedules interviews, creates review escalations, and prepares candidate communications.",
+    tags: ["🤖 AI", "💻 Frontend"],
+    cta: "View Case Study",
+    ctaSecondary: "Live App",
+    tech: ["Google ADK", "Gemini", "FastAPI", "Firestore", "Cloud Run", "Streamlit"],
+    image: projectRecruitFlow,
+    slug: "/case-study/recruitflow-ai",
+    liveUrl: "https://recruitflow.sineix.com",
+    repoUrl: null,
+    submissionUrl: "https://devpost.com/software/ai-todo-5mkbnc",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "violet",
+    archLabel: "Application-to-Action",
+    ArchDiagram: AgentArchSVG,
+    featured: false,
+    hackathon: true,
+    hackathonName: "All Things Agentic Hackathon",
+    teamRole: "Concept originator · Brand and visual identity · Workflow testing · Submission preparation",
+    teamSize: "3-member team",
+    keyNumbers: ["7 tools", "Policy engine", "Cloud Run", "Human review"],
+  },
+  {
+    title: "Agent-HR",
+    category: "Agents for Humans Hackathon",
+    categoryIcon: Users,
+    hook: "Hiring automation should reduce repetitive work without removing human control from sensitive decisions.",
+    summary: "A dual-portal recruitment platform that parses resumes, evaluates candidate fit against hiring policies, schedules interviews, drafts communications, and pauses high-stakes actions at a human-in-the-loop checkpoint.",
+    tags: ["🤖 AI", "🔒 Safety Tech", "💻 Frontend"],
+    cta: "View Case Study",
+    ctaSecondary: "Live App",
+    tech: ["Strands Agents SDK", "Amazon Bedrock", "Amazon Nova Pro", "DynamoDB", "FastAPI", "Streamlit"],
+    image: projectAgentHR,
+    slug: "/case-study/agent-hr",
+    liveUrl: "https://agentichr.sineix.com",
+    repoUrl: "https://github.com/faisal-ismail/AgentHR",
+    submissionUrl: "https://devpost.com/software/agent-hr-agentic-recruitment-platform",
+    repoUrlBackend: null,
+    researchUrl: null,
+    accentColor: "indigo",
+    archLabel: "HITL Recruitment Flow",
+    ArchDiagram: AgentArchSVG,
+    featured: false,
+    hackathon: true,
+    hackathonName: "Agents for Humans Hackathon",
+    teamRole: "Project vision · Agent workflow and HITL process · Documentation · Architecture presentation · Submission",
+    teamSize: "2-member team",
+    keyNumbers: ["HITL gate", "7 tools", "Audit trail", "AWS"],
   },
   {
     title: "NextGenShe",
@@ -237,27 +449,6 @@ const projects = [
     accentColor: "emerald",
     archLabel: "UI Structure",
     ArchDiagram: HavenArchSVG,
-    featured: false,
-  },
-  {
-    title: "AI-Powered Smart Health Assistant",
-    category: "AI Engineering",
-    categoryIcon: Brain,
-    hook: "In low-resource environments, people make health decisions without guidance — this system changes that, without replacing the doctor.",
-    summary: "AI triage system achieving 84%+ classification accuracy across 5 severity levels — handles real-world Urdu-English inputs, routes to appropriate care, and enforces an ethical constraint layer that prevents diagnosis and mandates human oversight.",
-    tags: ["🤖 AI", "💻 Frontend"],
-    cta: "See AI in Action",
-    ctaSecondary: "Read Research Series",
-    tech: ["Python", "FastAPI", "Scikit-Learn", "NLTK", "Decision Logic"],
-    image: projectHealth,
-    slug: "/case-study/smart-health-assistant",
-    liveUrl: null,
-    repoUrl: "https://github.com/KainatNadeemCodes/health-assistant-FYP",
-    repoUrlBackend: null,
-    researchUrl: "https://www.linkedin.com/pulse/im-building-ai-health-assistant-pakistan-because-waiting-nadeem--izerf",
-    accentColor: "blue",
-    archLabel: "Decision Flow",
-    ArchDiagram: HealthArchSVG,
     featured: false,
   },
   {
@@ -481,7 +672,7 @@ const Projects = () => {
                     {project.hackathon && (
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="inline-flex items-center gap-1.5 font-mono text-[9px] px-2.5 py-1 rounded-full bg-indigo-400/15 border border-indigo-400/30 text-indigo-300 tracking-widest uppercase">
-                          ★ HEC Gen AI Hackathon 2026
+                          ★ {project.hackathonName ?? project.category}
                         </span>
                         <span className="inline-flex items-center gap-1.5 font-mono text-[9px] px-2.5 py-1 rounded-full bg-secondary border border-border/40 text-muted-foreground">
                           <Users size={9} />
@@ -563,6 +754,14 @@ const Projects = () => {
                           className="inline-flex items-center gap-1.5 border border-border/50 rounded-md px-3 py-1.5 text-xs font-mono text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors duration-200 cursor-pointer">
                           <Github size={12} />
                           {project.repoUrlBackend ? "Frontend" : "GitHub"}
+                        </a>
+                      )}
+                      {project.submissionUrl && (
+                        <a href={project.submissionUrl} target="_blank" rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1.5 border border-border/50 rounded-md px-3 py-1.5 text-xs font-mono text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors duration-200 cursor-pointer">
+                          <ExternalLink size={12} />
+                          Submission
                         </a>
                       )}
                       {project.repoUrlBackend && (
@@ -677,3 +876,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
