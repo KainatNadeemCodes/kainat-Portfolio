@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Community",  href: "#testimonials"},
   { label: "Skills",     href: "#skills"      },
   { label: "Experience", href: "#experience"  },
+  { label: "Hackathons", href: "#hackathons"  },
   { label: "Projects",   href: "#projects"    },
   { label: "Writing",    href: "#writing"     },
   { label: "Contact",    href: "#contact"     },
@@ -137,3 +138,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
