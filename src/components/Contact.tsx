@@ -39,10 +39,6 @@ const Contact = () => {
           <p className="font-body text-muted-foreground text-base mb-3 max-w-md mx-auto leading-relaxed">
             Available for MSc AI programmes, research collaborations, and STEM scholarship opportunities.
           </p>
-          <p className="font-mono text-muted-foreground text-xs mb-10 max-w-sm mx-auto">
-            Pakistan · +92 342 5611470
-          </p>
-
           <div className="flex flex-wrap justify-center gap-3 mb-16">
             {links.map((link, i) => {
               const Icon = link.icon;
