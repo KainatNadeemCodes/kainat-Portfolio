@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, Github, Clock, Brain, Shield, Zap, Globe, Eye, GitBranch, BookOpen, Cpu, Users, Bot, Play, FileText } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Clock, Brain, Shield, Zap, Globe, Eye, GitBranch, BookOpen, Cpu, Users, Bot, Play, FileText, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import projectHealth from "@/assets/project-health.jpg";
 import projectNextGenShe from "@/assets/project-nextgenshe.jpg";
@@ -14,6 +14,7 @@ import projectHackerrankMultimodal from "@/assets/project-hackerrank-multimodal.
 import projectHackerrankBuyWait from "@/assets/project-hackerrank-buywait.jpg";
 import projectRecruitFlow from "@/assets/project-recruitflow.jpg";
 import projectAgentHR from "@/assets/project-agent-hr.jpg";
+import projectSeen from "@/assets/project-seen.svg";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Identity tag config
@@ -198,6 +199,33 @@ const AgentArchSVG = () => (
 // Projects data
 // ─────────────────────────────────────────────────────────────────────────────
 const projects = [
+  {
+    title: "Seen",
+    category: "Lovable SheBuilds · Season 4",
+    categoryIcon: Heart,
+    hook: "Everyday work carries real experience — Seen helps people recognize the skills inside it, privately and at their own pace.",
+    summary: "A human-centered reflection tool for discovering possible transferable skills in caregiving, family work, making, organizing, and other everyday experiences. Seen supports English, Urdu, Spanish, and Arabic, keeps stories in the current session, and lets people choose what feels true before taking one manageable next step.",
+    tags: ["🌍 Social Impact", "🧠 UX Case Study", "♿ Accessibility"],
+    cta: "Live Experience",
+    ctaSecondary: "Project Repository",
+    tech: ["Lovable", "Multilingual UX", "Accessibility", "Privacy-first Design", "AI Reflection"],
+    image: projectSeen,
+    slug: null,
+    liveUrl: "https://the-seen.lovable.app",
+    repoUrl: "https://github.com/KainatNadeemCodes/the-seen",
+    repoUrlBackend: null,
+    researchUrl: null,
+    videoUrl: "https://drive.google.com/file/d/15xt0W-wZWAERJ8FkX0pc9BEYUczL7eKq/view?usp=drive_link",
+    accentColor: "pink",
+    archLabel: "Reflection-to-Next-Step",
+    ArchDiagram: SheSphereArchSVG,
+    featured: true,
+    hackathon: true,
+    hackathonName: "Lovable SheBuilds · Season 4",
+    teamRole: "Builder · Shaped the product concept, user experience, and Lovable implementation",
+    teamSize: "Solo build",
+    keyNumbers: ["4 languages", "Private session", "5–10 min", "Human-centered"],
+  },
   {
     title: "Juristt",
     category: "Build with Gemini XPRIZE",
@@ -876,4 +904,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
 
