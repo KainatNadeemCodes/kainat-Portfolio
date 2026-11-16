@@ -3,6 +3,32 @@ import { Trophy, Star, Users, Lightbulb, Globe } from "lucide-react";
 
 const highlights = [
   {
+    icon: Trophy,
+    label: "Official Judge · DYLP AI",
+    sub: "Selected to evaluate the 2026 AI hackathon",
+    color: "text-cyan-400",
+    glow: "hover:shadow-cyan-400/20",
+    border: "hover:border-cyan-400/30",
+    bg: "hover:bg-cyan-400/5",
+    links: [
+      { label: "Announcement", url: "https://lnkd.in/p/d_dh2PG2" },
+      { label: "Poster", url: "https://drive.google.com/file/d/1NWRkB1gBxLX33PkFrhgjrqHqIi1eVSDq/view?usp=sharing" },
+    ],
+  },
+  {
+    icon: Trophy,
+    label: "Official Judge · NYLP AI",
+    sub: "Selected to evaluate the 2026 AI hackathon",
+    color: "text-indigo-400",
+    glow: "hover:shadow-indigo-400/20",
+    border: "hover:border-indigo-400/30",
+    bg: "hover:bg-indigo-400/5",
+    links: [
+      { label: "Announcement", url: "https://lnkd.in/p/dZcUW9V8" },
+      { label: "Poster", url: "https://drive.google.com/file/d/1VjVcFF0NdmW29Rum1tgJ169w8PREpiFm/view?usp=sharing" },
+    ],
+  },
+  {
     icon: Star,
     label: "Top 1% Scholar",
     sub: "CGPA 3.93 · PEEF 6-Year Merit Award",
@@ -95,6 +121,22 @@ const Highlights = () => {
               <p className="text-muted-foreground text-[10px] leading-relaxed font-mono">
                 {item.sub}
               </p>
+              {"links" in item && item.links && (
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {item.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      className={`text-[9px] font-mono ${item.color} hover:underline`}
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -104,3 +146,4 @@ const Highlights = () => {
 };
 
 export default Highlights;
+
