@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 608" fill="none">
+  <rect width="800" height="608" rx="28" fill="#17151f"/>
+  <circle cx="112" cy="98" r="150" fill="#9b4d78" opacity=".16"/>
+  <circle cx="690" cy="510" r="190" fill="#82a98b" opacity=".12"/>
+  <path d="M120 178h560M120 226h330M120 274h510M120 322h390" stroke="#f1b3c8" opacity=".12" stroke-width="2"/>
+  <rect x="112" y="112" width="576" height="384" rx="18" fill="#211d2a" stroke="#d889ab" stroke-opacity=".45"/>
+  <rect x="152" y="152" width="210" height="28" rx="8" fill="#9b4d78" opacity=".32"/>
+  <text x="174" y="172" fill="#f7d9e4" font-family="monospace" font-size="16" letter-spacing="2">SEEN / STORY</text>
+  <rect x="152" y="214" width="496" height="72" rx="12" fill="#2b2435" stroke="#d889ab" stroke-opacity=".25"/>
+  <text x="176" y="246" fill="#fff5f8" font-family="sans-serif" font-size="24" font-weight="600">Your work counts.</text>
+  <text x="176" y="270" fill="#e8b9c9" font-family="sans-serif" font-size="16">Let’s show it — in your own words.</text>
+  <rect x="152" y="316" width="145" height="92" rx="12" fill="#82a98b" opacity=".16" stroke="#a7d1b0" stroke-opacity=".35"/>
+  <text x="176" y="348" fill="#c9efd0" font-family="monospace" font-size="13">PRIVATE</text>
+  <text x="176" y="375" fill="#d9f4dd" font-family="sans-serif" font-size="14">by design</text>
+  <rect x="315" y="316" width="145" height="92" rx="12" fill="#d889ab" opacity=".13" stroke="#f1b3c8" stroke-opacity=".35"/>
+  <text x="339" y="348" fill="#f7d9e4" font-family="monospace" font-size="13">MULTI</text>
+  <text x="339" y="375" fill="#fbe7ef" font-family="sans-serif" font-size="14">language</text>
+  <rect x="478" y="316" width="170" height="92" rx="12" fill="#7e72c5" opacity=".16" stroke="#b7adff" stroke-opacity=".35"/>
+  <text x="502" y="348" fill="#d8d2ff" font-family="monospace" font-size="13">NEXT STEP</text>
+  <text x="502" y="375" fill="#ebe8ff" font-family="sans-serif" font-size="14">at your pace</text>
+  <text x="112" y="548" fill="#e8b9c9" opacity=".78" font-family="monospace" font-size="14" letter-spacing="3">LOVABLE SHEBUILDS · SEASON 4</text>
+</svg>
