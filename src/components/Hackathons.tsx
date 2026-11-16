@@ -26,6 +26,7 @@ type Hackathon = {
   projectUrl?: string;
   demoUrl?: string;
   repoUrl?: string;
+  certificateUrl?: string;
   featured?: boolean;
 };
 
@@ -75,6 +76,43 @@ const accentStyles = {
 } as const;
 
 const hackathons: Hackathon[] = [
+  {
+    name: "Lovable SheBuilds · Season 4",
+    platform: "Lovable",
+    period: "2026",
+    mode: "Solo",
+    project: "Seen",
+    summary:
+      "Built a private, multilingual reflection experience that helps people recognize transferable skills in everyday work and choose one manageable next step.",
+    role:
+      "Builder · Shaped the product concept, user experience, accessibility direction, and Lovable implementation.",
+    achievement: "Live product · English, Urdu, Spanish, and Arabic",
+    tech: ["Lovable", "Multilingual UX", "Accessibility", "Privacy-first Design"],
+    accent: "pink",
+    eventUrl: "https://lovable.dev/",
+    projectUrl: "https://github.com/KainatNadeemCodes/the-seen",
+    demoUrl: "https://the-seen.lovable.app",
+    featured: true,
+  },
+  {
+    name: "NASA Space Apps Challenge 2026",
+    platform: "NASA Space Apps",
+    period: "2026",
+    mode: "Team",
+    project: "SkyTrace — Infrared Sky Explorer",
+    summary:
+      "Contributed to a public-facing astronomy tool for exploring SPHEREx infrared sky images over time and making motion in the data easier to spot.",
+    role:
+      "Team participant · Project and demo presentation linked below.",
+    achievement: "Planet X and SPHEREx challenge · Participation certificate",
+    tech: ["SPHEREx", "Infrared Astronomy", "Data Visualization", "Web Tool"],
+    accent: "blue",
+    eventUrl: "https://www.spaceappschallenge.org/2026/challenges/planet-x-and-spherex/",
+    projectUrl: "https://github.com/Ayeshakhan77/SkyTrace-Infrared-Sky-Explorer",
+    demoUrl: "https://docs.google.com/presentation/d/1l3OBGpg2WWLfbkDE77ApbR4HRgSCJu6K/edit?usp=drive_link&ouid=116298954747468109186&rtpof=true&sd=true",
+    certificateUrl: "https://drive.google.com/file/d/1FFsDF1oWcKp0oCX908RJl4onjNm60u3H/view?usp=sharing",
+    featured: true,
+  },
   {
     name: "Agents for Humans Hackathon",
     platform: "Devpost · AWS",
@@ -218,7 +256,7 @@ const Hackathons = () => {
           <p className="font-mono text-primary text-xs tracking-[0.2em] uppercase mb-3">Hackathons</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">Build Fast. Think Deeply.</h2>
           <p className="font-body text-muted-foreground text-sm mt-3 max-w-2xl leading-relaxed">
-            Eight competition experiences spanning agentic AI, responsible automation, social impact, and cross-border collaboration — from solo 24-hour builds to international team sprints.
+            Ten competition experiences spanning agentic AI, responsible automation, social impact, science, and cross-border collaboration — from solo builds to international team sprints.
           </p>
         </motion.div>
 
@@ -333,6 +371,17 @@ const Hackathons = () => {
                       GitHub
                     </a>
                   )}
+                  {hackathon.certificateUrl && (
+                    <a
+                      href={hackathon.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 border border-border/50 rounded-md px-3 py-1.5 text-xs font-mono text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors duration-200"
+                    >
+                      <Medal size={12} />
+                      Certificate
+                    </a>
+                  )}
                 </div>
               </motion.article>
             );
@@ -344,3 +393,4 @@ const Hackathons = () => {
 };
 
 export default Hackathons;
+
