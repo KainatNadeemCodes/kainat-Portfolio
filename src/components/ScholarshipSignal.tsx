@@ -55,6 +55,20 @@ const volunteerItems = [
     link: "https://www.linkedin.com/in/kainat-nadeem-a9408b324",
   },
   {
+    role: "AI Educator & Content Creator",
+    org: "AI Simplified Series · Apr 2026 – Present",
+    impact: "Making AI more accessible through beginner-friendly carousels and frameworks on prompt engineering, responsible AI, and agentic workflows.",
+    icon: Lightbulb,
+    link: "https://www.linkedin.com/posts/kainat-nadeem-a9408b324_ai-artificialintelligence-machinelearning-activity-7457137391166918656-sAsU",
+  },
+  {
+    role: "Learn Python With Me",
+    org: "Volunteer learning series · LinkedIn",
+    impact: "Creating practical, jargon-free Python lessons with mini quizzes and examples for students and aspiring developers.",
+    icon: BookOpen,
+    link: "https://lnkd.in/p/dvGGicfw",
+  },
+  {
     role: "Global AI Hackathon Team Lead",
     org: "Aspire Institute × CAYU · Jan 2026",
     impact: "Led a cross-border team of 5 from Kenya, Nigeria, Bolivia & Pakistan — building Pathway AI in 24 hours for 4,000+ participants.",
@@ -391,3 +405,4 @@ const ScholarshipSignal = () => {
 };
 
 export default ScholarshipSignal;
+
