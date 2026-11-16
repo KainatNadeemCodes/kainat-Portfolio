@@ -3,6 +3,19 @@ import { Brain, Globe, Shield, Users, Rocket, Trophy, Award } from "lucide-react
 
 const experiences = [
   {
+    period: "2026",
+    title: "Official Judge · DYLP & NYLP AI Hackathons",
+    org: "DYLP AI Hackathon · NYLP AI Hackathon",
+    impact: "Selected as an official judge for two 2026 AI hackathons, helping assess and recognize student innovation.",
+    detail: "Trusted to review AI-focused projects and contribute to a fair, constructive evaluation process for emerging builders.",
+    icon: Award,
+    color: "text-cyan-400",
+    bg: "bg-cyan-400/8",
+    border: "border-cyan-400/20",
+    tags: ["Judging", "AI Hackathons", "Community Leadership"],
+    highlight: false,
+  },
+  {
     period: "Apr 2026",
     title: "National Skill Competency Test (NSCT)",
     org: "HEC · P@SHA · NCEAC · Virtual University · Tech Nation Pakistan",
@@ -84,8 +97,8 @@ const experiences = [
     period: "2024 – Present",
     title: "Volunteer Mentor",
     org: "LinkedIn Learning Community",
-    impact: "Mentoring 20+ university students on programming logic, FYP strategy, and career pathways",
-    detail: "Supporting students through technical guidance, project reviews, and career development coaching.",
+    impact: "Mentoring 20+ university students on programming logic, FYP strategy, career pathways, and practical AI learning.",
+    detail: "Supporting students through technical guidance, project reviews, career development coaching, and beginner-friendly teaching through the AI Simplified and Learn Python With Me series.",
     icon: Users,
     color: "text-primary",
     bg: "bg-primary/8",
@@ -227,3 +240,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
