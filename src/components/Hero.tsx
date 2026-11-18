@@ -4,10 +4,10 @@ import { downloadResume } from "@/lib/resume";
 import NeuralCanvas from "@/components/NeuralCanvas";
 
 const roles = [
-  { icon: Brain,   label: "AI Engineer",               color: "text-blue-400",    bg: "bg-blue-400/10",    border: "border-blue-400/20",    href: "#skills"    },
-  { icon: Code2,   label: "Frontend Developer",         color: "text-violet-400",  bg: "bg-violet-400/10",  border: "border-violet-400/20",  href: "#skills"    },
-  { icon: Palette, label: "UX Designer",                color: "text-pink-400",    bg: "bg-pink-400/10",    border: "border-pink-400/20",    href: "#skills"    },
-  { icon: Globe,   label: "Social Impact Technologist", color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20", href: "#projects"  },
+  { icon: Brain,   label: "AI Engineer",               color: "text-blue-400",    bg: "bg-blue-400/10",    border: "border-blue-400/20",    href: "/skills"    },
+  { icon: Code2,   label: "Frontend Developer",         color: "text-violet-400",  bg: "bg-violet-400/10",  border: "border-violet-400/20",  href: "/skills"    },
+  { icon: Palette, label: "UX Designer",                color: "text-pink-400",    bg: "bg-pink-400/10",    border: "border-pink-400/20",    href: "/skills"    },
+  { icon: Globe,   label: "Social Impact Technologist", color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20", href: "#flagship-projects"  },
 ];
 
 const stats = [
@@ -19,6 +19,10 @@ const stats = [
 ];
 
 const scrollTo = (id: string) => {
+  if (id.startsWith("/")) {
+    window.location.href = id;
+    return;
+  }
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
@@ -134,10 +138,10 @@ const Hero = () => {
           className="flex flex-wrap items-center justify-center gap-3 mb-14"
         >
           <a
-            href="#projects"
+            href="#flagship-projects"
             onClick={(e) => {
               e.preventDefault();
-              scrollTo("projects");
+              scrollTo("flagship-projects");
             }}
             className="bg-primary text-primary-foreground px-7 py-3 rounded-lg text-sm font-medium transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 cursor-pointer"
           >
@@ -167,17 +171,17 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.68, ease: "easeOut" }}
-          className="inline-flex items-center gap-0 bg-card/40 backdrop-blur-sm border border-border/40 rounded-xl overflow-hidden"
+          className="grid w-full max-w-[22rem] grid-cols-5 items-stretch gap-0 bg-card/40 backdrop-blur-sm border border-border/40 rounded-xl overflow-hidden"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`px-5 py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
+              className={`min-w-0 px-1.5 py-2.5 sm:px-3 sm:py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
             >
-              <p className="text-foreground font-bold text-base font-mono leading-none mb-0.5">
+              <p className="text-foreground font-bold text-xs sm:text-base font-mono leading-none mb-0.5">
                 {stat.value}
               </p>
-              <p className="text-muted-foreground text-[10px] font-mono tracking-wide">
+              <p className="text-muted-foreground text-[8px] sm:text-[10px] font-mono tracking-tight sm:tracking-wide leading-tight">
                 {stat.label}
               </p>
             </div>
@@ -205,3 +209,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
