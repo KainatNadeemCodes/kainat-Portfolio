@@ -64,12 +64,19 @@ const NeuralCanvas = () => {
       const H = canvas.height;
 
       ctx.clearRect(0, 0, W, H);
+      const isLight = typeof document !== "undefined" && document.documentElement.classList.contains("light");
 
-      // ─ 1. Dark gradient background ─────────────────────────────
+      // ─ 1. Background gradient ─────────────────────────────
       const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-      bgGrad.addColorStop(0,   "hsl(228, 14%, 9%)");
-      bgGrad.addColorStop(0.5, "hsl(235, 12%, 8%)");
-      bgGrad.addColorStop(1,   "hsl(240, 10%, 7%)");
+      if (isLight) {
+        bgGrad.addColorStop(0,   "hsl(220, 20%, 97%)");
+        bgGrad.addColorStop(0.5, "hsl(225, 25%, 95%)");
+        bgGrad.addColorStop(1,   "hsl(230, 20%, 93%)");
+      } else {
+        bgGrad.addColorStop(0,   "hsl(228, 14%, 9%)");
+        bgGrad.addColorStop(0.5, "hsl(235, 12%, 8%)");
+        bgGrad.addColorStop(1,   "hsl(240, 10%, 7%)");
+      }
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
 
@@ -167,20 +174,23 @@ const NeuralCanvas = () => {
       // ─ 7. Vignette overlay ────────────────────────────────────────
       const vignette = ctx.createRadialGradient(W / 2, H / 2, H * 0.2, W / 2, H / 2, H * 0.85);
       vignette.addColorStop(0, "hsla(0,0%,0%,0)");
-      vignette.addColorStop(1, "hsla(228,14%,6%, 0.65)");
+      vignette.addColorStop(1, isLight ? "hsla(220, 20%, 94%, 0.45)" : "hsla(228,14%,6%, 0.65)");
       ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, W, H);
 
       // ─ 8. Top + bottom edge fades ────────────────────────────────
+      const edgeColor = isLight ? "hsl(220, 20%, 97%)" : "hsl(228, 14%, 9%)";
+      const edgeTrans = isLight ? "hsla(220, 20%, 97%, 0)" : "hsla(228, 14%, 9%, 0)";
+
       const topFade = ctx.createLinearGradient(0, 0, 0, H * 0.18);
-      topFade.addColorStop(0, "hsl(228, 14%, 9%)");
-      topFade.addColorStop(1, "hsla(228, 14%, 9%, 0)");
+      topFade.addColorStop(0, edgeColor);
+      topFade.addColorStop(1, edgeTrans);
       ctx.fillStyle = topFade;
       ctx.fillRect(0, 0, W, H * 0.18);
 
       const botFade = ctx.createLinearGradient(0, H * 0.78, 0, H);
-      botFade.addColorStop(0, "hsla(228, 14%, 9%, 0)");
-      botFade.addColorStop(1, "hsl(228, 14%, 9%)");
+      botFade.addColorStop(0, edgeTrans);
+      botFade.addColorStop(1, edgeColor);
       ctx.fillStyle = botFade;
       ctx.fillRect(0, H * 0.78, W, H * 0.22);
 

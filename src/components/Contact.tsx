@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, ArrowUpRight, Send } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight, Send, Copy, Check } from "lucide-react";
 
 const links = [
   {
@@ -25,6 +25,13 @@ const links = [
 
 const Contact = () => {
   const [status, setStatus] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("kainat.nadeem.work@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -100,7 +107,27 @@ const Contact = () => {
             </form>
 
             <div className="flex flex-col gap-3">
-            {links.map((link, i) => {
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="group bg-card border border-border/50 rounded-xl px-5 py-3.5 flex items-center justify-between hover:border-primary/40 hover:shadow-lg transition-all duration-200 cursor-pointer text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Mail size={16} className="text-primary shrink-0" />
+                  <div>
+                    <p className="font-mono text-foreground text-xs leading-none mb-1">kainat.nadeem.work@gmail.com</p>
+                    <p className="text-muted-foreground text-[10px] font-mono">
+                      {copied ? "Copied to clipboard!" : "Click to copy email address"}
+                    </p>
+                  </div>
+                </div>
+                <span className="font-mono text-xs text-primary px-2 py-1 rounded bg-primary/10 flex items-center gap-1">
+                  {copied ? <Check size={12} /> : <Copy size={12} />}
+                  {copied ? "Copied" : "Copy"}
+                </span>
+              </button>
+
+            {links.slice(1).map((link, i) => {
               const Icon = link.icon;
               return (
                 <motion.a

@@ -32,6 +32,8 @@ const caseStudies = {
     category: "Legal AI · Responsible Retrieval",
     categoryColor: "text-indigo-400 bg-indigo-400/10 border-indigo-400/25",
     heroImage: projectJuristt,
+    repoUrl: "https://github.com/KainatNadeemCodes",
+    submissionUrl: "https://gemini.devpost.com/",
     sections: [
       { heading: "Problem Statement", content: <div className="space-y-3">{para("Lawyers, businesses, students, and ordinary citizens in Pakistan often spend hours navigating statutes, provisions, and supporting documents. Legal information is difficult to search, interpret, and verify quickly.")}{para("Juristt was designed to make legal research more accessible without treating an unconstrained language model as a source of law. The system grounds answers in an indexed corpus of Pakistani statutes and exposes the reasoning path through validated citations.")}</div> },
       { heading: "My Role in the Team", content: <div className="space-y-3">{para("I served as the AI Engineer and RAG Architect, designing the multi-agent AI architecture and the retrieval-to-response pipeline.")}{bullets(["Designed the agent workflow for query routing, query rewriting, retrieval, legal reasoning, citation validation, and response composition", "Integrated Vertex AI RAG Engine and Gemini 2.5 Flash for grounded legal reasoning", "Structured the AI service for deployment on Google Cloud Run", "Focused on source-grounded responses and transparent legal references rather than unsupported generation"])}</div> },
@@ -49,6 +51,7 @@ const caseStudies = {
     category: "Agentic AI · Financial Safety",
     categoryColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/25",
     heroImage: projectHackerrankBuyWait,
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-september26/challenges/buy-or-wait",
     sections: [
       { heading: "Challenge Context", content: <div className="space-y-3">{para("HackerRank Orchestrate is a 24-hour build challenge in which participants design, build, and ship an AI agent, then explain its architecture and tradeoffs to an AI judge.")}{para("The Buy or Wait challenge focused on an affordability decision: whether a user can safely afford a requested expense. The core product question is not only whether money is available now, but whether the purchase is responsible in the context of future cash flow and safety constraints.")}</div> },
       { heading: "My Approach", content: bullets(["Designed and built the agent independently within the 24-hour challenge window", "Separated natural-language interpretation from deterministic affordability and safety rules", "Framed the output as an explainable recommendation rather than an unquestionable financial instruction", "Prepared the implementation and reasoning for HackerRank's AI-judge evaluation"]) },
@@ -66,6 +69,7 @@ const caseStudies = {
     category: "Multi-Modal AI",
     categoryColor: "text-violet-400 bg-violet-400/10 border-violet-400/25",
     heroImage: projectHackerrankMultimodal,
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review",
     sections: [
       { heading: "Challenge Context", content: <div className="space-y-3">{para("The June edition of HackerRank Orchestrate asked participants to design, build, and ship an agent in 24 hours, followed by an AI-judge interview about architecture, decisions, and tradeoffs.")}{para("The Multi-Modal Review challenge required the system to work across more than one type of evidence, making input handling, evidence grounding, and structured output design central to the solution.")}</div> },
       { heading: "My Approach", content: bullets(["Designed and built the agent independently within the 24-hour window", "Organized the workflow around evidence intake, analysis, review, and structured output", "Kept the system explicit about what evidence was available before forming a conclusion", "Prepared an architecture that could be defended during the AI-judge interview"]) },
@@ -83,6 +87,7 @@ const caseStudies = {
     category: "Responsible AI · Support Automation",
     categoryColor: "text-pink-400 bg-pink-400/10 border-pink-400/25",
     heroImage: projectHackerrankSupport,
+    submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-may26/challenges/support-agent",
     sections: [
       { heading: "Challenge Context", content: <div className="space-y-3">{para("The May HackerRank Orchestrate hackathon ran from May 1–2, 2026. The task was to build a terminal-based agent that handled real support tickets using only the supplied corpus for ground-truth answers.")}{para("The required output included a status, product area, user-facing response, justification, and request type. High-risk, sensitive, or unsupported cases had to be escalated instead of guessed.")}</div> },
       { heading: "My Approach", content: bullets(["Designed and built the support agent independently within the 24-hour challenge", "Used the provided knowledge corpus as the source of truth", "Separated ticket classification, retrieval, response generation, and justification", "Added safe escalation behavior for unsupported or sensitive requests", "Prepared the code, predictions, transcript, and explanation for evaluation"]) },

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Github, Brain, Code2, Palette, Globe } from "lucide-react";
+import { ArrowDown, Download, Github, Brain, Code2, Palette, Globe, Compass } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { downloadResume } from "@/lib/resume";
 import NeuralCanvas from "@/components/NeuralCanvas";
 
 const roles = [
   { icon: Brain,   label: "AI Engineer",               color: "text-blue-400",    bg: "bg-blue-400/10",    border: "border-blue-400/20",    href: "/skills"    },
-  { icon: Code2,   label: "Frontend Developer",         color: "text-violet-400",  bg: "bg-violet-400/10",  border: "border-violet-400/20",  href: "/skills"    },
+  { icon: Code2,   label: "Frontend Developer",         color: "text-violet-400",  bg: "bg-violet-400/10",  border: "border-violet-400/20",  href: "/projects"  },
   { icon: Palette, label: "UX Designer",                color: "text-pink-400",    bg: "bg-pink-400/10",    border: "border-pink-400/20",    href: "/skills"    },
-  { icon: Globe,   label: "Social Impact Technologist", color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20", href: "#flagship-projects"  },
+  { icon: Globe,   label: "Social Impact Technologist", color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20", href: "/why-me"     },
 ];
 
 const stats = [
@@ -18,28 +19,29 @@ const stats = [
   { value: "5",     label: "Articles Live"     },
 ];
 
-const scrollTo = (id: string) => {
-  if (id.startsWith("/")) {
-    window.location.href = id;
-    return;
-  }
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-};
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+  const navigate = useNavigate();
 
+  const handleAction = (target: string) => {
+    if (target.startsWith("#")) {
+      const el = document.getElementById(target.replace("#", ""));
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate(target);
+    }
+  };
+
+  return (
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-28 sm:pt-36 pb-20">
       <NeuralCanvas />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="font-mono text-xs tracking-[0.25em] uppercase text-muted-foreground mb-6"
+          className="font-mono text-xs tracking-[0.25em] uppercase text-muted-foreground mb-5"
         >
           MSc AI Candidate · Women in STEM Advocate · Pakistan
         </motion.p>
@@ -76,13 +78,13 @@ const Hero = () => {
             return (
               <motion.button
                 key={role.label}
-                onClick={() => scrollTo(role.href.replace("#", ""))}
+                onClick={() => handleAction(role.href)}
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35, delay: 0.32 + i * 0.07 }}
-                whileHover={{ scale: 1.06, transition: { duration: 0.15 } }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-full border backdrop-blur-sm cursor-pointer ${role.color} ${role.bg} ${role.border}`}
+                className={`inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-full border backdrop-blur-sm cursor-pointer transition-shadow hover:shadow-sm ${role.color} ${role.bg} ${role.border}`}
               >
                 <Icon size={11} />
                 {role.label}
@@ -102,7 +104,7 @@ const Hero = () => {
           <span className="text-gradient">human understanding.</span>
         </motion.h2>
 
-        {/* Subheading — now includes research intent */}
+        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,15 +118,15 @@ const Hero = () => {
           </span>
         </motion.p>
 
-        {/* Research intent line — NEW */}
+        {/* Research intent line */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.52, ease: "easeOut" }}
-          className="font-mono text-xs text-muted-foreground/80 max-w-lg mx-auto mb-10 leading-relaxed border border-primary/15 rounded-lg px-4 py-2.5 bg-primary/5"
+          className="font-mono text-xs text-muted-foreground/90 max-w-lg mx-auto mb-9 leading-relaxed border border-primary/20 rounded-lg px-4 py-2.5 bg-card/60 backdrop-blur-sm"
         >
           Building these systems raised questions I cannot yet answer —{" "}
-          <span className="text-primary">
+          <span className="text-primary font-medium">
             about accountability, safety, and who AI leaves behind.
           </span>{" "}
           Pursuing an MSc in AI to research them properly.
@@ -135,53 +137,56 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.58, ease: "easeOut" }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-14"
+          className="flex flex-wrap items-center justify-center gap-3 mb-12"
         >
-          <a
-            href="#flagship-projects"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("flagship-projects");
-            }}
-            className="bg-primary text-primary-foreground px-7 py-3 rounded-lg text-sm font-medium transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 cursor-pointer"
+          <button
+            onClick={() => handleAction("#explore")}
+            className="bg-primary text-primary-foreground px-6 py-3 rounded-lg text-sm font-medium transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 cursor-pointer"
           >
-            View Projects
-            <ArrowDown size={15} />
-          </a>
+            <Compass size={15} />
+            Explore Portfolio
+          </button>
+          <button
+            onClick={() => handleAction("#flagship-projects")}
+            className="border border-border/70 bg-card/60 backdrop-blur-sm px-6 py-3 rounded-lg text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/90 transition-all flex items-center gap-2 cursor-pointer"
+          >
+            Flagship Projects
+            <ArrowDown size={14} className="text-primary" />
+          </button>
           <button
             onClick={downloadResume}
-            className="border border-border/60 bg-card/40 backdrop-blur-sm px-7 py-3 rounded-lg text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/60 transition-all flex items-center gap-2 cursor-pointer"
+            className="border border-border/70 bg-card/60 backdrop-blur-sm px-5 py-3 rounded-lg text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/90 transition-all flex items-center gap-2 cursor-pointer"
           >
-            <Download size={15} className="text-primary" />
+            <Download size={14} className="text-primary" />
             Resume
           </button>
           <a
             href="https://github.com/KainatNadeemCodes"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-border/60 bg-card/40 backdrop-blur-sm px-7 py-3 rounded-lg text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/60 transition-all flex items-center gap-2 cursor-pointer"
+            className="border border-border/70 bg-card/60 backdrop-blur-sm px-5 py-3 rounded-lg text-sm font-medium text-foreground hover:border-primary/40 hover:bg-card/90 transition-all flex items-center gap-2 cursor-pointer"
           >
-            <Github size={15} className="text-primary" />
+            <Github size={14} className="text-primary" />
             GitHub
           </a>
         </motion.div>
 
-        {/* Stats strip — updated "4 Live Projects" → "5 Articles Live" */}
+        {/* Stats strip */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.68, ease: "easeOut" }}
-          className="grid w-full max-w-[22rem] grid-cols-5 items-stretch gap-0 bg-card/40 backdrop-blur-sm border border-border/40 rounded-xl overflow-hidden"
+          className="grid w-full max-w-xl mx-auto grid-cols-5 items-stretch gap-0 bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl overflow-hidden shadow-sm"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`min-w-0 px-1.5 py-2.5 sm:px-3 sm:py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
+              className={`min-w-0 px-2 py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
             >
-              <p className="text-foreground font-bold text-xs sm:text-base font-mono leading-none mb-0.5">
+              <p className="text-foreground font-bold text-sm sm:text-base font-mono leading-none mb-1">
                 {stat.value}
               </p>
-              <p className="text-muted-foreground text-[8px] sm:text-[10px] font-mono tracking-tight sm:tracking-wide leading-tight">
+              <p className="text-muted-foreground text-[9px] sm:text-[10px] font-mono tracking-tight leading-tight">
                 {stat.label}
               </p>
             </div>
@@ -194,19 +199,22 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
       >
-        <div className="w-5 h-9 rounded-full border border-muted-foreground/20 flex justify-center pt-2">
+        <button
+          onClick={() => handleAction("#explore")}
+          className="w-5 h-8 rounded-full border border-muted-foreground/30 flex justify-center pt-1.5 cursor-pointer hover:border-primary transition-colors"
+          aria-label="Scroll to sections"
+        >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-1 rounded-full bg-primary/60"
+            className="w-1 h-1 rounded-full bg-primary"
           />
-        </div>
+        </button>
       </motion.div>
     </section>
   );
 };
 
 export default Hero;
-

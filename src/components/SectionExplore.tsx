@@ -1,104 +1,163 @@
-import { ArrowUpRight, BriefcaseBusiness, GraduationCap, HeartHandshake, Lightbulb, PenLine } from "lucide-react";
+import { 
+  ArrowUpRight, 
+  BriefcaseBusiness, 
+  Cpu, 
+  FolderKanban, 
+  GraduationCap, 
+  HeartHandshake, 
+  Lightbulb, 
+  PenLine, 
+  Trophy 
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const sections = [
   {
     number: "01",
-    label: "Why Me",
+    label: "Projects & Deep Dives",
+    badge: "12 Systems & Case Studies",
+    title: "Systems built for real constraints",
+    description: "Multi-agent RAG, clinical triage, legal intelligence, and accessible UX across 12 full builds.",
+    route: "/projects",
+    icon: FolderKanban,
+    accent: "indigo",
+  },
+  {
+    number: "02",
+    label: "Hackathons & Sprints",
+    badge: "10 Competitions · Wins",
+    title: "Build fast. Think deeply.",
+    description: "NASA Space Apps, Lovable SheBuilds, HEC Gen AI, and HackerRank Orchestrate competitive builds.",
+    route: "/hackathons",
+    icon: Trophy,
+    accent: "amber",
+  },
+  {
+    number: "03",
+    label: "Why Me & Research",
+    badge: "MSc AI Candidate",
     title: "Purpose-driven engineering",
-    description: "The scholarship story, research direction, and principles behind the systems I build.",
+    description: "The scholarship journey, distance-learning story, and research questions behind my MSc ambition.",
     route: "/why-me",
     icon: Lightbulb,
     accent: "violet",
   },
   {
-    number: "02",
-    label: "Community",
-    title: "Teaching and leadership",
-    description: "Mentoring students, simplifying AI, and opening practical routes into technology.",
-    route: "/community",
-    icon: HeartHandshake,
+    number: "04",
+    label: "Skills & Architecture",
+    badge: "AI · Full-Stack · UX",
+    title: "The technical toolkit",
+    description: "FastAPI, LangChain, React, PyTorch, Figma, and human-centered design principles.",
+    route: "/skills",
+    icon: Cpu,
+    accent: "cyan",
+  },
+  {
+    number: "05",
+    label: "Writing & Thought",
+    badge: "5 Articles Live",
+    title: "Learning in public",
+    description: "7-part Responsible AI series for healthcare in Pakistan and articles on women in STEM.",
+    route: "/writing",
+    icon: PenLine,
     accent: "pink",
   },
   {
-    number: "03",
-    label: "Experience",
+    number: "06",
+    label: "Community & Leadership",
+    badge: "NextGenShe Founder",
+    title: "Teaching and leadership",
+    description: "Mentoring 20+ students, AI Simplified series, and cross-border hackathon team leadership.",
+    route: "/community",
+    icon: HeartHandshake,
+    accent: "emerald",
+  },
+  {
+    number: "07",
+    label: "Experience & Roles",
+    badge: "AI Engineer & Judge",
     title: "From idea to implementation",
-    description: "AI engineering, UX research, frontend development, judging, and team leadership.",
+    description: "AI engineering, hackathon judging (DYLP/NYLP), RAG architecture, and product leadership.",
     route: "/experience",
     icon: BriefcaseBusiness,
     accent: "blue",
   },
   {
-    number: "04",
-    label: "Skills",
-    title: "The technical toolkit",
-    description: "AI systems, full-stack delivery, accessible interfaces, and responsible design methods.",
-    route: "/skills",
-    icon: Lightbulb,
-    accent: "cyan",
-  },
-  {
-    number: "05",
-    label: "Writing",
-    title: "Learning in public",
-    description: "Research reflections, responsible AI notes, and explainers from the build process.",
-    route: "/writing",
-    icon: PenLine,
-    accent: "amber",
-  },
-  {
-    number: "06",
-    label: "Education",
+    number: "08",
+    label: "Education & Honors",
+    badge: "3.93 CGPA · PEEF Scholar",
     title: "The foundation underneath",
-    description: "Academic milestones, certifications, scholarships, and the next research direction.",
+    description: "Virtual University BS Software Engineering, 6-year PEEF Merit Scholar, and certifications.",
     route: "/education",
     icon: GraduationCap,
-    accent: "emerald",
+    accent: "rose",
   },
 ] as const;
 
 const accentStyles = {
-  violet: "text-violet-300 border-violet-400/25 hover:border-violet-400/55 bg-violet-400/10",
-  pink: "text-pink-300 border-pink-400/25 hover:border-pink-400/55 bg-pink-400/10",
-  blue: "text-blue-300 border-blue-400/25 hover:border-blue-400/55 bg-blue-400/10",
-  cyan: "text-cyan-300 border-cyan-400/25 hover:border-cyan-400/55 bg-cyan-400/10",
-  amber: "text-amber-300 border-amber-400/25 hover:border-amber-400/55 bg-amber-400/10",
-  emerald: "text-emerald-300 border-emerald-400/25 hover:border-emerald-400/55 bg-emerald-400/10",
+  indigo: "border-indigo-400/30 hover:border-indigo-400/70 bg-indigo-500/5 hover:bg-indigo-500/10 text-indigo-400",
+  amber: "border-amber-400/30 hover:border-amber-400/70 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400",
+  violet: "border-violet-400/30 hover:border-violet-400/70 bg-violet-500/5 hover:bg-violet-500/10 text-violet-400",
+  cyan: "border-cyan-400/30 hover:border-cyan-400/70 bg-cyan-500/5 hover:bg-cyan-500/10 text-cyan-400",
+  pink: "border-pink-400/30 hover:border-pink-400/70 bg-pink-500/5 hover:bg-pink-500/10 text-pink-400",
+  emerald: "border-emerald-400/30 hover:border-emerald-400/70 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400",
+  blue: "border-blue-400/30 hover:border-blue-400/70 bg-blue-500/5 hover:bg-blue-500/10 text-blue-400",
+  rose: "border-rose-400/30 hover:border-rose-400/70 bg-rose-500/5 hover:bg-rose-500/10 text-rose-400",
 } as const;
 
 const SectionExplore = () => (
-  <section id="explore" className="py-16 sm:py-24 px-4 sm:px-6">
+  <section id="explore" className="py-20 sm:py-28 px-4 sm:px-6 bg-secondary/15 border-y border-border/40">
     <div className="container mx-auto max-w-5xl">
-      <div className="mb-10 max-w-2xl">
-        <p className="font-mono text-primary text-xs tracking-[0.2em] uppercase mb-3">Explore the portfolio</p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">More than a project list.</h2>
-        <p className="font-body text-muted-foreground text-sm mt-3 leading-relaxed">
-          Choose a path to explore the thinking, experience, and people-focused work behind the products.
+      <div className="mb-12 max-w-2xl">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary font-mono text-xs mb-3">
+          <span>●</span> Interactive Directory
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          Explore the Full Portfolio.
+        </h2>
+        <p className="font-body text-muted-foreground text-sm sm:text-base mt-3 leading-relaxed">
+          Every pillar of my work has its own dedicated space. Choose a section below to dive deep into projects, hackathons, research principles, and community impact.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {sections.map((section) => {
           const Icon = section.icon;
-          const accent = accentStyles[section.accent];
+          const accentClass = accentStyles[section.accent];
           return (
             <Link
               key={section.label}
               to={section.route}
-              className={`group relative min-w-0 rounded-xl border bg-card p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${accent}`}
+              className={`group relative flex flex-col justify-between rounded-xl border p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl bg-card/80 backdrop-blur-sm ${accentClass}`}
             >
-              <div className="flex items-start justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[10px] opacity-70">{section.number}</span>
-                  <Icon size={16} />
+              <div>
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-background/80 border border-border/50">
+                    <Icon size={16} />
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="opacity-60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
                 </div>
-                <ArrowUpRight size={16} className="opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+
+                <div className="inline-block text-[10px] font-mono tracking-wide px-2 py-0.5 rounded-full border border-border/60 bg-background/60 mb-2">
+                  {section.badge}
+                </div>
+
+                <h3 className="font-bold text-base text-foreground group-hover:text-primary transition-colors leading-snug">
+                  {section.label}
+                </h3>
+
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                  {section.description}
+                </p>
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] opacity-75">{section.label}</p>
-              <h3 className="mt-2 break-words text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors">{section.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{section.description}</p>
-              <div className="mt-5 border-t border-border/40 pt-3 font-mono text-[10px] text-foreground/75">Explore section →</div>
+
+              <div className="mt-5 pt-3 border-t border-border/40 font-mono text-[11px] text-foreground/80 flex items-center justify-between">
+                <span>Explore</span>
+                <span className="font-mono text-xs text-primary">→</span>
+              </div>
             </Link>
           );
         })}

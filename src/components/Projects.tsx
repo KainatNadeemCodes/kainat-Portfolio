@@ -315,7 +315,7 @@ const projects = [
     image: projectHackerrankBuyWait,
     slug: "/case-study/hackerrank-buy-or-wait",
     liveUrl: null,
-    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    repoUrl: null,
     submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-september26/challenges/buy-or-wait",
     repoUrlBackend: null,
     researchUrl: null,
@@ -342,7 +342,7 @@ const projects = [
     image: projectHackerrankMultimodal,
     slug: "/case-study/hackerrank-multi-modal-review",
     liveUrl: null,
-    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    repoUrl: null,
     submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review",
     repoUrlBackend: null,
     researchUrl: null,
@@ -369,7 +369,7 @@ const projects = [
     image: projectHackerrankSupport,
     slug: "/case-study/hackerrank-support-agent",
     liveUrl: null,
-    repoUrl: "https://github.com/REPLACE_WITH_YOUR_REPOSITORY",
+    repoUrl: null,
     submissionUrl: "https://www.hackerrank.com/contests/hackerrank-orchestrate-may26/challenges/support-agent",
     repoUrlBackend: null,
     researchUrl: null,
@@ -492,7 +492,7 @@ const projects = [
     image: projectSheSphere,
     slug: null,
     liveUrl: null,
-    repoUrl: "https://github.com/KainatNadeemCodes",
+    repoUrl: null,
     repoUrlBackend: null,
     researchUrl: null,
     accentColor: "pink",
@@ -673,7 +673,15 @@ const Projects = () => {
                   <div className="md:col-span-2 relative h-48 md:h-full overflow-hidden">
                     {project.image ? (
                       <>
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className={`w-full h-full transition-transform duration-500 group-hover:scale-[1.03] ${
+                            typeof project.image === "string" && project.image.includes(".svg")
+                              ? "object-contain p-4 bg-muted/20"
+                              : "object-cover"
+                          }`}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/30" />
                       </>
                     ) : (

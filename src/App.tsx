@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import type { ReactNode } from "react";
 
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -120,9 +121,9 @@ const SectionPage = ({ page }: { page: SectionPageKey }) => {
       <div className="min-h-screen bg-background">
         <Navbar />
 
-        <main className="pt-24 sm:pt-28">
-          <div className="container mx-auto max-w-5xl px-4 sm:px-6">
-            <div className="flex items-center gap-2 font-mono text-[10px] tracking-wide text-muted-foreground">
+        <main className="pt-20 sm:pt-24">
+          <div className="container mx-auto max-w-5xl px-4 sm:px-6 pt-4 pb-2">
+            <div className="flex items-center gap-2 font-mono text-xs tracking-wide text-muted-foreground">
               <Link
                 to="/"
                 className="transition-colors hover:text-foreground"
@@ -132,21 +133,7 @@ const SectionPage = ({ page }: { page: SectionPageKey }) => {
 
               <span className="text-border">/</span>
 
-              <span className="text-primary">{config.eyebrow}</span>
-            </div>
-
-            <div className="max-w-2xl pt-6 pb-2 sm:pt-8 sm:pb-4">
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                {config.eyebrow}
-              </p>
-
-              <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
-                {config.title}
-              </h1>
-
-              <p className="mt-4 font-body text-base leading-relaxed text-muted-foreground">
-                {config.intro}
-              </p>
+              <span className="text-primary font-medium">{config.eyebrow}</span>
             </div>
           </div>
 
@@ -166,6 +153,7 @@ const App = () => (
       <Sonner />
 
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* Homepage */}
           <Route path="/" element={<Index />} />

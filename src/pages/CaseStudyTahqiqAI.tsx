@@ -118,6 +118,8 @@ const TahqiqAICaseStudy = () => (
     categoryColor="text-indigo-400 bg-indigo-400/10 border-indigo-400/25"
     heroImage={projectTahqiq}
     sections={sections}
+    demoUrl="https://tahqiq-ai-hec.streamlit.app/"
+    repoUrl="https://github.com/KainatNadeemCodes/Tahqiq-AI-HEC-Frontend"
   />
 );
 
