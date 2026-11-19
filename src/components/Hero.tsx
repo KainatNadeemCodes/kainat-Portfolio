@@ -5,18 +5,18 @@ import { downloadResume } from "@/lib/resume";
 import NeuralCanvas from "@/components/NeuralCanvas";
 
 const roles = [
-  { icon: Brain,   label: "AI Engineer",               color: "text-blue-400",    bg: "bg-blue-400/10",    border: "border-blue-400/20",    href: "/skills"    },
-  { icon: Code2,   label: "Frontend Developer",         color: "text-violet-400",  bg: "bg-violet-400/10",  border: "border-violet-400/20",  href: "/projects"  },
-  { icon: Palette, label: "UX Designer",                color: "text-pink-400",    bg: "bg-pink-400/10",    border: "border-pink-400/20",    href: "/skills"    },
-  { icon: Globe,   label: "Social Impact Technologist", color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20", href: "/why-me"     },
+  { icon: Brain,   label: "AI Engineer",               color: "text-cyan-400",    bg: "bg-cyan-400/10",    border: "border-cyan-400/25",    href: "/skills"    },
+  { icon: Code2,   label: "Frontend Developer",         color: "text-teal-400",    bg: "bg-teal-400/10",    border: "border-teal-400/25",    href: "/projects"  },
+  { icon: Palette, label: "UX Designer",                color: "text-sky-400",     bg: "bg-sky-400/10",     border: "border-sky-400/25",     href: "/skills"    },
+  { icon: Globe,   label: "Social Impact Technologist", color: "text-amber-400",   bg: "bg-amber-400/10",   border: "border-amber-400/25",   href: "/why-me"     },
 ];
 
 const stats = [
-  { value: "3.93",  label: "CGPA · Top 1%"    },
-  { value: "98.5",  label: "NSCT Percentile"   },
-  { value: "6yr",   label: "PEEF Scholar"      },
-  { value: "4K+",   label: "Hackathon Pool"    },
-  { value: "5",     label: "Articles Live"     },
+  { value: "3.93",  label: "CGPA · Top 1%",    gold: true },
+  { value: "98.5",  label: "NSCT Percentile",  gold: false },
+  { value: "6yr",   label: "PEEF Scholar",     gold: true },
+  { value: "4K+",   label: "Hackathon Pool",   gold: false },
+  { value: "5",     label: "Articles Live",    gold: false },
 ];
 
 const Hero = () => {
@@ -183,7 +183,7 @@ const Hero = () => {
               key={stat.label}
               className={`min-w-0 px-2 py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
             >
-              <p className="text-foreground font-bold text-sm sm:text-base font-mono leading-none mb-1">
+              <p className={`font-bold text-sm sm:text-base font-mono leading-none mb-1 ${stat.gold ? "text-amber-400" : "text-foreground"}`}>
                 {stat.value}
               </p>
               <p className="text-muted-foreground text-[9px] sm:text-[10px] font-mono tracking-tight leading-tight">

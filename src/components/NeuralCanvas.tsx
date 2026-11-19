@@ -69,27 +69,27 @@ const NeuralCanvas = () => {
       // ─ 1. Background gradient ─────────────────────────────
       const bgGrad = ctx.createLinearGradient(0, 0, W, H);
       if (isLight) {
-        bgGrad.addColorStop(0,   "hsl(220, 20%, 97%)");
-        bgGrad.addColorStop(0.5, "hsl(225, 25%, 95%)");
-        bgGrad.addColorStop(1,   "hsl(230, 20%, 93%)");
+        bgGrad.addColorStop(0,   "hsl(210, 40%, 98%)");
+        bgGrad.addColorStop(0.5, "hsl(215, 30%, 96%)");
+        bgGrad.addColorStop(1,   "hsl(220, 25%, 94%)");
       } else {
-        bgGrad.addColorStop(0,   "hsl(228, 14%, 9%)");
-        bgGrad.addColorStop(0.5, "hsl(235, 12%, 8%)");
-        bgGrad.addColorStop(1,   "hsl(240, 10%, 7%)");
+        bgGrad.addColorStop(0,   "hsl(222, 47%, 7%)");
+        bgGrad.addColorStop(0.5, "hsl(222, 42%, 6%)");
+        bgGrad.addColorStop(1,   "hsl(224, 45%, 5%)");
       }
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
 
       // ─ 2. Ambient orbs (slow drift, GPU-cheap radial grads) ─────
       const orbA = ctx.createRadialGradient(W * 0.2, H * 0.3, 0, W * 0.2, H * 0.3, W * 0.32);
-      orbA.addColorStop(0, "hsla(220, 90%, 58%, 0.055)");
-      orbA.addColorStop(1, "hsla(220, 90%, 58%, 0)");
+      orbA.addColorStop(0, isLight ? "hsla(190, 95%, 48%, 0.04)" : "hsla(190, 95%, 48%, 0.07)");
+      orbA.addColorStop(1, "hsla(190, 95%, 48%, 0)");
       ctx.fillStyle = orbA;
       ctx.fillRect(0, 0, W, H);
 
       const orbB = ctx.createRadialGradient(W * 0.82, H * 0.7, 0, W * 0.82, H * 0.7, W * 0.28);
-      orbB.addColorStop(0, "hsla(260, 70%, 58%, 0.045)");
-      orbB.addColorStop(1, "hsla(260, 70%, 58%, 0)");
+      orbB.addColorStop(0, isLight ? "hsla(160, 80%, 45%, 0.035)" : "hsla(160, 80%, 45%, 0.05)");
+      orbB.addColorStop(1, "hsla(160, 80%, 45%, 0)");
       ctx.fillStyle = orbB;
       ctx.fillRect(0, 0, W, H);
 
@@ -97,9 +97,9 @@ const NeuralCanvas = () => {
       const { x: mx, y: my } = mouseRef.current;
       if (mx > 0 && my > 0) {
         const cursorGrad = ctx.createRadialGradient(mx, my, 0, mx, my, CURSOR_RADIUS);
-        cursorGrad.addColorStop(0, `hsla(220, 90%, 65%, ${CURSOR_STRENGTH})`);
-        cursorGrad.addColorStop(0.5, `hsla(240, 70%, 60%, ${CURSOR_STRENGTH * 0.4})`);
-        cursorGrad.addColorStop(1, "hsla(220, 90%, 65%, 0)");
+        cursorGrad.addColorStop(0, `hsla(190, 95%, 52%, ${CURSOR_STRENGTH})`);
+        cursorGrad.addColorStop(0.5, `hsla(165, 80%, 50%, ${CURSOR_STRENGTH * 0.4})`);
+        cursorGrad.addColorStop(1, "hsla(190, 95%, 52%, 0)");
         ctx.fillStyle = cursorGrad;
         ctx.fillRect(0, 0, W, H);
       }
@@ -134,13 +134,13 @@ const NeuralCanvas = () => {
             const pulse = (frame % 120 < 8 && i % 7 === 0) ? alpha * 2.5 : alpha;
 
             const lineGrad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-            lineGrad.addColorStop(0, `hsla(220, 90%, 65%, ${pulse})`);
-            lineGrad.addColorStop(0.5, `hsla(245, 75%, 65%, ${pulse * 1.3})`);
-            lineGrad.addColorStop(1, `hsla(260, 70%, 65%, ${pulse})`);
+            lineGrad.addColorStop(0, `hsla(190, 95%, 52%, ${pulse})`);
+            lineGrad.addColorStop(0.5, `hsla(175, 85%, 48%, ${pulse * 1.25})`);
+            lineGrad.addColorStop(1, `hsla(160, 80%, 46%, ${pulse})`);
 
             ctx.beginPath();
             ctx.strokeStyle = lineGrad;
-            ctx.lineWidth   = strength * 0.7;
+            ctx.lineWidth   = strength * 0.75;
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
             ctx.stroke();
@@ -156,9 +156,9 @@ const NeuralCanvas = () => {
 
         // Soft outer glow
         const gGlow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 5);
-        gGlow.addColorStop(0, `hsla(220, 90%, 70%, ${op * 0.7})`);
-        gGlow.addColorStop(0.4, `hsla(240, 80%, 68%, ${op * 0.25})`);
-        gGlow.addColorStop(1,   "hsla(220, 90%, 70%, 0)");
+        gGlow.addColorStop(0, `hsla(190, 95%, 55%, ${op * 0.7})`);
+        gGlow.addColorStop(0.4, `hsla(170, 85%, 50%, ${op * 0.25})`);
+        gGlow.addColorStop(1,   "hsla(190, 95%, 55%, 0)");
         ctx.beginPath();
         ctx.fillStyle = gGlow;
         ctx.arc(n.x, n.y, r * 5, 0, Math.PI * 2);
@@ -166,7 +166,7 @@ const NeuralCanvas = () => {
 
         // Crisp bright core
         ctx.beginPath();
-        ctx.fillStyle = `hsla(215, 95%, 80%, ${op})`;
+        ctx.fillStyle = isLight ? `hsla(190, 95%, 40%, ${op})` : `hsla(190, 95%, 75%, ${op})`;
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -174,13 +174,13 @@ const NeuralCanvas = () => {
       // ─ 7. Vignette overlay ────────────────────────────────────────
       const vignette = ctx.createRadialGradient(W / 2, H / 2, H * 0.2, W / 2, H / 2, H * 0.85);
       vignette.addColorStop(0, "hsla(0,0%,0%,0)");
-      vignette.addColorStop(1, isLight ? "hsla(220, 20%, 94%, 0.45)" : "hsla(228,14%,6%, 0.65)");
+      vignette.addColorStop(1, isLight ? "hsla(210, 30%, 92%, 0.45)" : "hsla(222,47%,5%, 0.7)");
       ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, W, H);
 
       // ─ 8. Top + bottom edge fades ────────────────────────────────
-      const edgeColor = isLight ? "hsl(220, 20%, 97%)" : "hsl(228, 14%, 9%)";
-      const edgeTrans = isLight ? "hsla(220, 20%, 97%, 0)" : "hsla(228, 14%, 9%, 0)";
+      const edgeColor = isLight ? "hsl(210, 40%, 98%)" : "hsl(222, 47%, 7%)";
+      const edgeTrans = isLight ? "hsla(210, 40%, 98%, 0)" : "hsla(222, 47%, 7%, 0)";
 
       const topFade = ctx.createLinearGradient(0, 0, 0, H * 0.18);
       topFade.addColorStop(0, edgeColor);

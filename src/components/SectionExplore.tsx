@@ -20,7 +20,7 @@ const sections = [
     description: "Multi-agent RAG, clinical triage, legal intelligence, and accessible UX across 12 full builds.",
     route: "/projects",
     icon: FolderKanban,
-    accent: "indigo",
+    accent: "cyan",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ const sections = [
     description: "NASA Space Apps, Lovable SheBuilds, HEC Gen AI, and HackerRank Orchestrate competitive builds.",
     route: "/hackathons",
     icon: Trophy,
-    accent: "amber",
+    accent: "gold",
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ const sections = [
     description: "The scholarship journey, distance-learning story, and research questions behind my MSc ambition.",
     route: "/why-me",
     icon: Lightbulb,
-    accent: "violet",
+    accent: "teal",
   },
   {
     number: "04",
@@ -60,7 +60,7 @@ const sections = [
     description: "7-part Responsible AI series for healthcare in Pakistan and articles on women in STEM.",
     route: "/writing",
     icon: PenLine,
-    accent: "pink",
+    accent: "teal",
   },
   {
     number: "06",
@@ -70,7 +70,7 @@ const sections = [
     description: "Mentoring 20+ students, AI Simplified series, and cross-border hackathon team leadership.",
     route: "/community",
     icon: HeartHandshake,
-    accent: "emerald",
+    accent: "gold",
   },
   {
     number: "07",
@@ -80,7 +80,7 @@ const sections = [
     description: "AI engineering, hackathon judging (DYLP/NYLP), RAG architecture, and product leadership.",
     route: "/experience",
     icon: BriefcaseBusiness,
-    accent: "blue",
+    accent: "cyan",
   },
   {
     number: "08",
@@ -90,19 +90,14 @@ const sections = [
     description: "Virtual University BS Software Engineering, 6-year PEEF Merit Scholar, and certifications.",
     route: "/education",
     icon: GraduationCap,
-    accent: "rose",
+    accent: "gold",
   },
 ] as const;
 
 const accentStyles = {
-  indigo: "border-indigo-400/30 hover:border-indigo-400/70 bg-indigo-500/5 hover:bg-indigo-500/10 text-indigo-400",
-  amber: "border-amber-400/30 hover:border-amber-400/70 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400",
-  violet: "border-violet-400/30 hover:border-violet-400/70 bg-violet-500/5 hover:bg-violet-500/10 text-violet-400",
-  cyan: "border-cyan-400/30 hover:border-cyan-400/70 bg-cyan-500/5 hover:bg-cyan-500/10 text-cyan-400",
-  pink: "border-pink-400/30 hover:border-pink-400/70 bg-pink-500/5 hover:bg-pink-500/10 text-pink-400",
-  emerald: "border-emerald-400/30 hover:border-emerald-400/70 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400",
-  blue: "border-blue-400/30 hover:border-blue-400/70 bg-blue-500/5 hover:bg-blue-500/10 text-blue-400",
-  rose: "border-rose-400/30 hover:border-rose-400/70 bg-rose-500/5 hover:bg-rose-500/10 text-rose-400",
+  cyan: "border-cyan-500/25 hover:border-cyan-400/60 bg-cyan-500/5 hover:bg-cyan-500/10 text-cyan-400",
+  teal: "border-teal-500/25 hover:border-teal-400/60 bg-teal-500/5 hover:bg-teal-500/10 text-teal-400",
+  gold: "border-amber-500/25 hover:border-amber-400/60 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400",
 } as const;
 
 const SectionExplore = () => (

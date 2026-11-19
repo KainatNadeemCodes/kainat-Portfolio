@@ -12,7 +12,7 @@ const flagshipProjects = [
     summary: "A grounded legal research workspace combining multi-agent routing, trusted retrieval, citation validation, and accessible answers.",
     image: projectJuristt,
     route: "/case-study/juristt",
-    accent: "indigo",
+    accent: "cyan",
     label: "Agentic Legal RAG",
     evidence: ["10 statutes", "5 agents", "Grounded RAG", "Cloud Run"],
   },
@@ -23,7 +23,7 @@ const flagshipProjects = [
     summary: "A five-agent counselor that turns Roman Urdu questions into ranked HEC-verified university matches, explanations, and a family-ready PDF.",
     image: projectTahqiq,
     route: "/case-study/tahqiq-ai",
-    accent: "violet",
+    accent: "teal",
     label: "Explainable AI",
     evidence: ["253 universities", "5-agent pipeline", "Under 30 sec", "Urdu XAI"],
   },
@@ -41,19 +41,19 @@ const flagshipProjects = [
 ] as const;
 
 const accentStyles = {
-  indigo: {
-    border: "hover:border-indigo-400/55",
-    text: "text-indigo-300",
-    badge: "border-indigo-400/30 bg-indigo-400/10 text-indigo-300",
-    glow: "hover:shadow-indigo-500/15",
-    line: "from-indigo-400/70",
+  cyan: {
+    border: "hover:border-cyan-400/55",
+    text: "text-cyan-300",
+    badge: "border-cyan-400/30 bg-cyan-400/10 text-cyan-300",
+    glow: "hover:shadow-cyan-500/15",
+    line: "from-cyan-400/70",
   },
-  violet: {
-    border: "hover:border-violet-400/55",
-    text: "text-violet-300",
-    badge: "border-violet-400/30 bg-violet-400/10 text-violet-300",
-    glow: "hover:shadow-violet-500/15",
-    line: "from-violet-400/70",
+  teal: {
+    border: "hover:border-teal-400/55",
+    text: "text-teal-300",
+    badge: "border-teal-400/30 bg-teal-400/10 text-teal-300",
+    glow: "hover:shadow-teal-500/15",
+    line: "from-teal-400/70",
   },
   emerald: {
     border: "hover:border-emerald-400/55",
