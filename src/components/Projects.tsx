@@ -20,12 +20,12 @@ import projectSeen from "@/assets/project-seen.svg";
 // Identity tag config
 // ─────────────────────────────────────────────────────────────────────────────
 const TAG_STYLES: Record<string, string> = {
-  "🌍 Social Impact": "bg-emerald-400/10 text-emerald-300 border-emerald-400/25",
-  "🧠 UX Case Study": "bg-violet-400/10 text-violet-300 border-violet-400/25",
-  "💻 Frontend":      "bg-blue-400/10   text-blue-300   border-blue-400/25",
-  "🤖 AI":            "bg-amber-400/10  text-amber-300  border-amber-400/25",
-  "♿ Accessibility":  "bg-pink-400/10   text-pink-300   border-pink-400/25",
-  "🔒 Safety Tech":   "bg-rose-400/10   text-rose-300   border-rose-400/25",
+  "🌍 Social Impact": "dark:bg-emerald-400/10 bg-emerald-50 dark:text-emerald-300 text-emerald-800 dark:border-emerald-400/25 border-emerald-300",
+  "🧠 UX Case Study": "dark:bg-violet-400/10 bg-violet-50 dark:text-violet-300 text-violet-800 dark:border-violet-400/25 border-violet-300",
+  "💻 Frontend":      "dark:bg-blue-400/10   bg-blue-50   dark:text-blue-300   text-blue-800   dark:border-blue-400/25   border-blue-300",
+  "🤖 AI":            "dark:bg-amber-400/10  bg-amber-50  dark:text-amber-300  text-amber-800  dark:border-amber-400/25  border-amber-300",
+  "♿ Accessibility":  "dark:bg-pink-400/10   bg-pink-50   dark:text-pink-300   text-pink-800   dark:border-pink-400/25   border-pink-300",
+  "🔒 Safety Tech":   "dark:bg-rose-400/10   bg-rose-50   dark:text-rose-300   text-rose-800   dark:border-rose-400/25   border-rose-300",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -735,7 +735,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
 
-                    <p className="font-body text-muted-foreground text-sm leading-relaxed mb-4">
+                    <p className="font-body text-foreground/85 dark:text-muted-foreground text-sm leading-relaxed mb-4">
                       {project.summary}
                     </p>
 

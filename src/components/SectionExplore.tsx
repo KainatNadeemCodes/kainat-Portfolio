@@ -95,9 +95,9 @@ const sections = [
 ] as const;
 
 const accentStyles = {
-  cyan: "border-cyan-500/25 hover:border-cyan-400/60 bg-cyan-500/5 hover:bg-cyan-500/10 text-cyan-400",
-  teal: "border-teal-500/25 hover:border-teal-400/60 bg-teal-500/5 hover:bg-teal-500/10 text-teal-400",
-  gold: "border-amber-500/25 hover:border-amber-400/60 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400",
+  cyan: "dark:border-cyan-500/25 border-cyan-400/50 hover:border-cyan-500/80 dark:bg-cyan-500/5 bg-cyan-50 dark:text-cyan-300 text-cyan-800",
+  teal: "dark:border-teal-500/25 border-teal-400/50 hover:border-teal-500/80 dark:bg-teal-500/5 bg-teal-50 dark:text-teal-300 text-teal-800",
+  gold: "dark:border-amber-500/25 border-amber-400/50 hover:border-amber-500/80 dark:bg-amber-500/5 bg-amber-50 dark:text-amber-300 text-amber-800",
 } as const;
 
 const SectionExplore = () => (
@@ -144,7 +144,7 @@ const SectionExplore = () => (
                   {section.label}
                 </h3>
 
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                <p className="mt-2 text-xs leading-relaxed text-foreground/80 dark:text-muted-foreground line-clamp-3 font-normal">
                   {section.description}
                 </p>
               </div>

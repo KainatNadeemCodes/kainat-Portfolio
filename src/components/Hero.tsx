@@ -5,10 +5,10 @@ import { downloadResume } from "@/lib/resume";
 import NeuralCanvas from "@/components/NeuralCanvas";
 
 const roles = [
-  { icon: Brain,   label: "AI Engineer",               color: "text-cyan-400",    bg: "bg-cyan-400/10",    border: "border-cyan-400/25",    href: "/skills"    },
-  { icon: Code2,   label: "Frontend Developer",         color: "text-teal-400",    bg: "bg-teal-400/10",    border: "border-teal-400/25",    href: "/projects"  },
-  { icon: Palette, label: "UX Designer",                color: "text-sky-400",     bg: "bg-sky-400/10",     border: "border-sky-400/25",     href: "/skills"    },
-  { icon: Globe,   label: "Social Impact Technologist", color: "text-amber-400",   bg: "bg-amber-400/10",   border: "border-amber-400/25",   href: "/why-me"     },
+  { icon: Brain,   label: "AI Engineer",               color: "text-cyan-800 dark:text-cyan-300",    bg: "bg-cyan-50 dark:bg-cyan-400/10",    border: "border-cyan-300 dark:border-cyan-400/25",    href: "/skills"    },
+  { icon: Code2,   label: "Frontend Developer",         color: "text-teal-800 dark:text-teal-300",    bg: "bg-teal-50 dark:bg-teal-400/10",    border: "border-teal-300 dark:border-teal-400/25",    href: "/projects"  },
+  { icon: Palette, label: "UX Designer",                color: "text-sky-800 dark:text-sky-300",      bg: "bg-sky-50 dark:bg-sky-400/10",      border: "border-sky-300 dark:border-sky-400/25",      href: "/skills"    },
+  { icon: Globe,   label: "Social Impact Technologist", color: "text-amber-800 dark:text-amber-300",  bg: "bg-amber-50 dark:bg-amber-400/10",  border: "border-amber-300 dark:border-amber-400/25",  href: "/why-me"     },
 ];
 
 const stats = [
@@ -109,11 +109,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.44, ease: "easeOut" }}
-          className="font-body text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-4 leading-relaxed"
+          className="font-body text-foreground/85 dark:text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-4 leading-relaxed font-normal"
         >
           I build AI-powered systems and design interfaces for the people
           who need them most —{" "}
-          <span className="text-foreground font-medium">
+          <span className="text-foreground font-semibold">
             families, children, and underserved communities.
           </span>
         </motion.p>
@@ -123,10 +123,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.52, ease: "easeOut" }}
-          className="font-mono text-xs text-muted-foreground/90 max-w-lg mx-auto mb-9 leading-relaxed border border-primary/20 rounded-lg px-4 py-2.5 bg-card/60 backdrop-blur-sm"
+          className="font-mono text-xs text-foreground/90 dark:text-muted-foreground/90 max-w-lg mx-auto mb-9 leading-relaxed border border-border/80 dark:border-primary/20 rounded-lg px-4 py-2.5 bg-card/90 dark:bg-card/60 backdrop-blur-sm shadow-sm"
         >
           Building these systems raised questions I cannot yet answer —{" "}
-          <span className="text-primary font-medium">
+          <span className="text-primary font-semibold">
             about accountability, safety, and who AI leaves behind.
           </span>{" "}
           Pursuing an MSc in AI to research them properly.
@@ -183,10 +183,10 @@ const Hero = () => {
               key={stat.label}
               className={`min-w-0 px-2 py-3 text-center ${i < stats.length - 1 ? "border-r border-border/40" : ""}`}
             >
-              <p className={`font-bold text-sm sm:text-base font-mono leading-none mb-1 ${stat.gold ? "text-amber-400" : "text-foreground"}`}>
+              <p className={`font-bold text-sm sm:text-base font-mono leading-none mb-1 ${stat.gold ? "text-amber-800 dark:text-amber-400" : "text-foreground"}`}>
                 {stat.value}
               </p>
-              <p className="text-muted-foreground text-[9px] sm:text-[10px] font-mono tracking-tight leading-tight">
+              <p className="text-foreground/75 dark:text-muted-foreground text-[9px] sm:text-[10px] font-mono tracking-tight leading-tight font-medium">
                 {stat.label}
               </p>
             </div>

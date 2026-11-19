@@ -42,25 +42,25 @@ const flagshipProjects = [
 
 const accentStyles = {
   cyan: {
-    border: "hover:border-cyan-400/55",
-    text: "text-cyan-300",
-    badge: "border-cyan-400/30 bg-cyan-400/10 text-cyan-300",
+    border: "hover:border-cyan-500/60 dark:hover:border-cyan-400/55",
+    text: "text-cyan-800 dark:text-cyan-300 font-medium",
+    badge: "border-cyan-300 dark:border-cyan-400/30 bg-cyan-50 dark:bg-cyan-400/10 text-cyan-800 dark:text-cyan-300",
     glow: "hover:shadow-cyan-500/15",
-    line: "from-cyan-400/70",
+    line: "from-cyan-500/70",
   },
   teal: {
-    border: "hover:border-teal-400/55",
-    text: "text-teal-300",
-    badge: "border-teal-400/30 bg-teal-400/10 text-teal-300",
+    border: "hover:border-teal-500/60 dark:hover:border-teal-400/55",
+    text: "text-teal-800 dark:text-teal-300 font-medium",
+    badge: "border-teal-300 dark:border-teal-400/30 bg-teal-50 dark:bg-teal-400/10 text-teal-800 dark:text-teal-300",
     glow: "hover:shadow-teal-500/15",
-    line: "from-teal-400/70",
+    line: "from-teal-500/70",
   },
   emerald: {
-    border: "hover:border-emerald-400/55",
-    text: "text-emerald-300",
-    badge: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
+    border: "hover:border-emerald-500/60 dark:hover:border-emerald-400/55",
+    text: "text-emerald-800 dark:text-emerald-300 font-medium",
+    badge: "border-emerald-300 dark:border-emerald-400/30 bg-emerald-50 dark:bg-emerald-400/10 text-emerald-800 dark:text-emerald-300",
     glow: "hover:shadow-emerald-500/15",
-    line: "from-emerald-400/70",
+    line: "from-emerald-500/70",
   },
 } as const;
 
@@ -119,7 +119,7 @@ const FlagshipProjects = () => (
               <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
                 <h3 className="break-words text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
                 <p className={`mt-1 break-words font-mono text-[10px] uppercase tracking-[0.08em] ${accent.text}`}>{project.positioning}</p>
-                <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                <p className="mt-4 font-body text-sm leading-relaxed text-foreground/80 dark:text-muted-foreground">{project.summary}</p>
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {project.evidence.map((item) => (
