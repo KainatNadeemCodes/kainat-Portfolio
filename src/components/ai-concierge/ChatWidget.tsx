@@ -104,7 +104,7 @@ export const ChatWidget: React.FC = () => {
                 </div>
                 <p className="flex items-center gap-1 text-[11px] text-slate-400">
                   <ShieldCheck className="h-3 w-3 text-cyan-400" />
-                  <span>Verified on portfolio data</span>
+                  <span>Verified on portfolio · Gemini 3.8</span>
                 </p>
               </div>
             </div>

@@ -114,7 +114,14 @@ export async function handleChat(messages: any[]) {
   }
 
   const google = createGoogleGenerativeAI({ apiKey });
-  const modelName = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+  
+  // Guard against any deprecated model if configured in Vercel environment
+  const rawModel = (process.env.GEMINI_MODEL || "").trim();
+  const modelName =
+    rawModel && !rawModel.includes("2.0")
+      ? rawModel
+      : "gemini-3.8-flash";
+
   const model = google(modelName);
 
   const modelMessages = await convertToModelMessages(messages);
