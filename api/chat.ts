@@ -114,7 +114,8 @@ export async function handleChat(messages: any[]) {
   }
 
   const google = createGoogleGenerativeAI({ apiKey });
-  const model = google(process.env.GEMINI_MODEL || "gemini-2.0-flash");
+  const modelName = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+  const model = google(modelName);
 
   const modelMessages = await convertToModelMessages(messages);
 

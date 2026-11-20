@@ -322,7 +322,7 @@ export const ChatWidget: React.FC = () => {
                 <ShieldCheck className="h-2.5 w-2.5 text-cyan-400" />
                 <span>Strict Grounding · Server Validated</span>
               </span>
-              <span>Gemini 2.0 Flash</span>
+              <span>Gemini 3.8 Flash</span>
             </div>
           </div>
         </div>
