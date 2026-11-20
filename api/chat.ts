@@ -9,9 +9,9 @@ import {
   VALID_PROJECT_SLUGS,
 } from "../src/data/portfolio-context";
 
-// Vercel Serverless Function Configuration
+// Vercel Serverless Edge Runtime Configuration
 export const config = {
-  maxDuration: 30,
+  runtime: "edge",
 };
 
 /**
@@ -104,11 +104,12 @@ export async function handleChat(messages: any[]) {
   const apiKey =
     process.env.GOOGLE_GENERATIVE_AI_API_KEY ||
     process.env.GEMINI_API_KEY ||
+    process.env.GOOGLE_API_KEY ||
     process.env.VITE_GEMINI_API_KEY;
 
   if (!apiKey) {
     throw new Error(
-      "Missing Gemini API Key. Please set GOOGLE_GENERATIVE_AI_API_KEY or GEMINI_API_KEY in your environment variables (.env.local or Vercel dashboard)."
+      "Missing Gemini API key on Vercel. Please add GOOGLE_GENERATIVE_AI_API_KEY (or GEMINI_API_KEY) in your Vercel Project Dashboard ➔ Settings ➔ Environment Variables, then redeploy."
     );
   }
 
@@ -129,12 +130,21 @@ export async function handleChat(messages: any[]) {
 }
 
 /**
- * Standard Web Request Handler (Vercel Edge/Serverless / App Router).
+ * Standard Web Request Handler (Vercel Edge Runtime & Next.js/Web standard).
  */
 export async function POST(req: Request): Promise<Response> {
   try {
-    const body = await req.json();
-    const messages = body.messages || [];
+    let body: any;
+    try {
+      body = await req.json();
+    } catch {
+      return new Response(
+        JSON.stringify({ error: "Invalid JSON in request body." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const messages = body?.messages || [];
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return new Response(
@@ -146,65 +156,26 @@ export async function POST(req: Request): Promise<Response> {
     return await handleChat(messages);
   } catch (error: any) {
     console.error("AI Concierge API Error:", error);
+    const message = error?.message || "An unexpected error occurred in AI Concierge.";
     return new Response(
-      JSON.stringify({
-        error: error.message || "An unexpected error occurred in AI Concierge.",
-      }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      JSON.stringify({ error: message }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-store",
+        },
+      }
     );
   }
 }
 
 /**
- * Node.js Serverless Handler fallback for Vercel Node runtime.
+ * Default export fallback for Vercel Edge Runtime.
  */
-export default async function handler(req: any, res?: any) {
-  if (req instanceof Request || (!res && typeof req.json === "function")) {
-    return POST(req as Request);
+export default async function handler(req: Request): Promise<Response> {
+  if (req.method !== "POST") {
+    return new Response("Method Not Allowed", { status: 405 });
   }
-
-  // Node.js IncomingMessage / ServerResponse environment
-  try {
-    if (req.method !== "POST") {
-      res.statusCode = 405;
-      res.end(JSON.stringify({ error: "Method Not Allowed" }));
-      return;
-    }
-
-    const messages = req.body?.messages || [];
-    if (!Array.isArray(messages) || messages.length === 0) {
-      res.statusCode = 400;
-      res.end(JSON.stringify({ error: "Invalid request: messages array required." }));
-      return;
-    }
-
-    const response = await handleChat(messages);
-
-    res.statusCode = response.status;
-    response.headers.forEach((value: string, key: string) => {
-      res.setHeader(key, value);
-    });
-
-    if (response.body) {
-      const reader = response.body.getReader();
-      const pump = async () => {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          res.write(value);
-        }
-        res.end();
-      };
-      await pump();
-    } else {
-      res.end();
-    }
-  } catch (err: any) {
-    console.error("AI Concierge Node Handler Error:", err);
-    if (!res.headersSent) {
-      res.statusCode = 500;
-      res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify({ error: err.message || "Internal Server Error" }));
-    }
-  }
+  return POST(req);
 }

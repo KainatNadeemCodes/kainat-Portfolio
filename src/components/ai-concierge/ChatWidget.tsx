@@ -259,12 +259,25 @@ export const ChatWidget: React.FC = () => {
 
             {/* Error Notification */}
             {error && (
-              <div className="rounded-xl border border-rose-500/30 bg-rose-950/40 p-2.5 text-xs text-rose-300">
-                <p className="font-semibold">Concierge Notice:</p>
-                <p className="mt-0.5 text-slate-300">
-                  {error.message ||
-                    "Could not complete request. Please verify GEMINI_API_KEY."}
+              <div className="rounded-xl border border-rose-500/30 bg-rose-950/40 p-3 text-xs text-rose-300 space-y-1.5">
+                <p className="font-semibold text-rose-200">
+                  {error.message?.includes("Missing Gemini API key") ||
+                  error.message?.includes("FUNCTION_INVOCATION_FAILED")
+                    ? "Vercel Environment Setup Required"
+                    : "Concierge Notice:"}
                 </p>
+                <p className="text-slate-300 leading-relaxed">
+                  {error.message?.includes("Missing Gemini API key")
+                    ? "Please add GOOGLE_GENERATIVE_AI_API_KEY in your Vercel Project Settings ➔ Environment Variables, then redeploy."
+                    : error.message ||
+                      "Could not complete request. Please verify GEMINI_API_KEY."}
+                </p>
+                <button
+                  onClick={() => handleReset()}
+                  className="mt-1 inline-flex items-center rounded-lg bg-rose-900/60 px-2.5 py-1 text-[11px] font-medium text-rose-100 hover:bg-rose-900 transition-colors"
+                >
+                  Clear & Try Again
+                </button>
               </div>
             )}
 
