@@ -6,6 +6,8 @@ import projectHackerrankMultimodal from "@/assets/project-hackerrank-multimodal.
 import projectHackerrankBuyWait from "@/assets/project-hackerrank-buywait.jpg";
 import projectRecruitFlow from "@/assets/project-recruitflow.jpg";
 import projectAgentHR from "@/assets/project-agent-hr.jpg";
+import { AgentVisualizer } from "@/components/AgentVisualizer";
+
 
 const bullets = (items: string[]) => (
   <ul className="space-y-2">
