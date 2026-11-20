@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import type { ReactNode } from "react";
 
 import ScrollToTop from "@/components/ScrollToTop";
+import { ChatWidget } from "@/components/ai-concierge/ChatWidget";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -154,6 +155,7 @@ const App = () => (
 
       <BrowserRouter>
         <ScrollToTop />
+        <ChatWidget />
         <Routes>
           {/* Homepage */}
           <Route path="/" element={<Index />} />
