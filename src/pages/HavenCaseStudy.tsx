@@ -1,5 +1,6 @@
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import projectHaven from "@/assets/project-haven.jpg";
+import { HavenPlayground } from "@/components/HavenPlayground";
 
 const bullets = (items: string[]) => (
   <ul className="space-y-2">
@@ -35,6 +36,10 @@ const sections = [
       "Caregiver Dashboard: Protected by a 4-digit PIN barrier to prevent accidental disruption of safe configurations during distress",
       "Sensory Accessibility Controls: System-wide toggles for reduced motion, high contrast, typography scaling, and audio muting",
     ]),
+  },
+  {
+    heading: "Try the Sensory & AAC Playground",
+    content: <HavenPlayground />,
   },
   {
     heading: "Inclusive UX & Accessibility Engineering",
