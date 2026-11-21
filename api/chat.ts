@@ -30,7 +30,19 @@ function getConciergeTools() {
           ),
       }),
       execute: async ({ slug }) => {
-        const normalized = SLUG_ALIASES[slug.toLowerCase()] || slug.toLowerCase();
+        // Defensive check: guard against undefined or non-string argument from model
+        if (!slug || typeof slug !== "string") {
+          return {
+            success: false,
+            action: "openProject",
+            error: `Please specify a project slug (e.g. juristt, haven, tahqiq-ai). Available verified case studies are: ${VALID_PROJECT_SLUGS.join(
+              ", "
+            )}.`,
+          };
+        }
+
+        const cleanSlug = slug.trim().toLowerCase();
+        const normalized = SLUG_ALIASES[cleanSlug] || cleanSlug;
 
         if (!VALID_PROJECT_SLUGS.includes(normalized)) {
           return {
@@ -78,17 +90,16 @@ function getConciergeTools() {
 
     showContact: tool({
       description:
-        "Propose displaying direct contact channels, availability, and scheduling details for Kainat Nadeem.",
+        "Display verified direct contact channels for Kainat Nadeem (Email, LinkedIn, GitHub).",
       parameters: z.object({}),
       execute: async () => {
         return {
           success: true,
           action: "showContact",
-          name: PORTFOLIO_OWNER.name,
-          email: PORTFOLIO_OWNER.email,
-          secondaryEmail: PORTFOLIO_OWNER.secondaryEmail,
-          github: PORTFOLIO_OWNER.github,
-          linkedin: PORTFOLIO_OWNER.linkedin,
+          email: PORTFOLIO_OWNER.contact.email,
+          linkedin: PORTFOLIO_OWNER.contact.linkedin,
+          github: PORTFOLIO_OWNER.contact.github,
+          calendly: PORTFOLIO_OWNER.contact.calendly,
           location: PORTFOLIO_OWNER.location,
           availability: PORTFOLIO_OWNER.availability,
         };
@@ -132,6 +143,7 @@ export async function handleChat(messages: any[]) {
     messages: modelMessages,
     tools: getConciergeTools(),
     temperature: 0.3,
+    maxSteps: 2, // Allows conversational text alongside tool action proposals
   });
 
   return result.toUIMessageStreamResponse();
