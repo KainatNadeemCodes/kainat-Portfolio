@@ -20,8 +20,8 @@ const SUGGESTIONS = [
   "Explain Juristt architecture",
   "Download verified CV",
   "RAG & LLM experience",
-  "Tahqiq AI legal platform",
-  "Haven health companion",
+  "Tell me about Tahqiq AI",
+  "Explore Haven sensory app",
   "Hiring availability",
 ];
 
@@ -205,7 +205,7 @@ export const ChatWidget: React.FC = () => {
                   <strong className="text-cyan-300">
                     multi-agent legal RAG systems (Juristt)
                   </strong>
-                  , maternal health AI (Haven), 3.93 CGPA research background, or
+                  , neuro-inclusive sensory app (Haven), 3.93 CGPA research background, or
                   guide you to download her verified CV.
                 </p>
               </div>
